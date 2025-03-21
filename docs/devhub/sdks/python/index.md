@@ -1,11 +1,11 @@
 # Python SDK
 
-The Aleph Cloud Python SDK (`aleph-client`) provides a comprehensive set of tools for interacting with the Aleph Cloud network from Python applications. This guide covers installation, basic usage, and common patterns.
+The Aleph Cloud Python SDK (`aleph-sdk-python`) provides a comprehensive set of tools for interacting with the Aleph Cloud network from Python applications. This guide covers installation, basic usage, and common patterns.
 
 ## Installation
 
 ```bash
-pip install aleph-client
+pip install aleph-sdk-python
 ```
 
 For development versions:
@@ -14,29 +14,25 @@ For development versions:
 pip install git+https://github.com/aleph-im/aleph-sdk-python.git
 ```
 
-## Basic Setup
+## Client
 
-### Synchronous Client
+| Client Type                         | Class                             | Use Case                               | Auth Required |
+|------------------------------------|-----------------------------------|----------------------------------------|---------------|
+| **HTTP Client (Authenticated)**    | `AuthenticatedAlephHttpClient`   | Send messages, upload files, etc.     | ✅ Yes         |
+| **HTTP Client**         | `AlephHttpClient`                | Get Messages, get files, etc;           | ❌ No |
+| **VM Client**                      | `VMClient`                       | Interact with Aleph Virtual Machines  | ✅ Yes         |
+| **Confidential VM Client**         | `VMConfidentialClient`          | Interact with confidential VMs        | ✅ Yes         |
 
+### Setting up a basic client
 ```python
-from aleph_sdk_python.synchronous import SyncClient
 
-# Create a client instance
-client = SyncClient()
-```
-
-### Asynchronous Client (Recommended)
-
-```python
-import asyncio
-from aleph_sdk_python.asynchronous import AsyncClient
+from aleph.sdk.client import AlephHttpClient
 
 async def main():
-    # Create a client instance
-    client = AsyncClient()
-    # Use the client...
+    async with AlephHttpClient() as client:
+        # Use the client here
+        pass
 
-# Run the async function
 asyncio.run(main())
 ```
 
@@ -45,43 +41,52 @@ asyncio.run(main())
 ### Using a Private Key
 
 ```python
-from aleph_sdk_python.chains.ethereum import ETHAccount
+
+from aleph.sdk.chains.ethereum import ETHAccount
+from aleph.sdk.client import AuthenticatedAlephHttpClient
 
 # Create an account from a private key
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
 account = ETHAccount(private_key)
 
 # Create a client with this account
-client = AsyncClient(account=account)
+async with AuthenticatedAlephHttpClient(account=account) as client:
+    # Use the client here
+    pass
 ```
 
 ### Using a Mnemonic
 
 ```python
-from aleph_sdk_python.chains.ethereum import ETHAccount
+from aleph.sdk.chains.ethereum import ETHAccount
 
 # Create an account from a mnemonic
 mnemonic = "word1 word2 word3 word4 ... word12"
 account = ETHAccount.from_mnemonic(mnemonic)
 
 # Create a client with this account
-client = AsyncClient(account=account)
+async with AuthenticatedAlephHttpClient(account=account) as client:
+    # Use the client here
+    pass
 ```
 
 ### Using Other Chains
 
 ```python
 # Solana
-from aleph_sdk_python.chains.solana import SOLAccount
+from aleph.sdk.chains.solana import SOLAccount
 sol_account = SOLAccount(private_key)
 
 # Substrate (Polkadot, Kusama, etc.)
-from aleph_sdk_python.chains.substrate import DOTAccount
+from aleph.sdk.chains.substrate import DOTAccount
+from aleph
 dot_account = DOTAccount(private_key)
 
-# Avalanche
-from aleph_sdk_python.chains.avalanche import AVAXAccount
-avax_account = AVAXAccount(private_key)
+# Evm Chains (Avalanche, Base) mainly use for PAYG Features
+from aleph.sdk.chains.evm import EVMAccount
+from aleph_message.models import Chain
+
+avax_account = EVMAccount(private_key=private_key, chain=Chain.AVAX) # With this account you can manage PAYG flow
 ```
 
 ## Storage
@@ -89,13 +94,13 @@ avax_account = AVAXAccount(private_key)
 ### Store Data
 
 ```python
-# Store a simple message
-result = await client.create_store(
+# Store a simple message 
+message, status = await client.create_store(
     "Hello, Aleph.im!",
-    tags=['example', 'hello-world']
+    extra_fields= {"tags": ["example", "hello-world"]}
 )
 
-print(f"Stored message with hash: {result['item_hash']}")
+print(f"Stored message with hash: {result['item_hash']} Status: {status}")
 
 # Store a JSON object
 user_data = {
@@ -104,25 +109,31 @@ user_data = {
     "age": 30
 }
 
-json_result = await client.create_store(
+json_result, status = await client.create_store(
     user_data,
-    tags=['user', 'profile']
+    extra_fields= {"tags": ["example", "hello-world"]}
 )
 
-print(f"Stored JSON with hash: {json_result['item_hash']}")
+print(f"Stored JSON with hash: {json_result['item_hash']}, Status: {status}")
 ```
 
 ### Retrieve Data
 
 ```python
 # Get a message by hash
-message = await client.get_message('QmHash123')
+message = await client.get_message('item_hash')
 print(message['content'])
 
-# Query messages by tags
-messages = await client.get_messages(
-    tags=['user', 'profile'],
-    limit=10
+# Query messages with status 
+messages, status = await client.get_messages(
+    item_hash=item_hash,
+    with_status=True
+)
+# Get 100 lasts messages
+message = await client.get_messages(
+    page_size=100,
+    page=1,
+    ignore_invalid_messages=True
 )
 
 for msg in messages:
@@ -132,26 +143,31 @@ for msg in messages:
 ### File Storage
 
 ```python
-# Upload a file
+# Upload a file on ipfs
 with open('example.pdf', 'rb') as f:
     file_content = f.read()
     
-file_result = await client.create_store_file(
-    file_content,
-    file_name='example.pdf',
-    file_type='application/pdf',
-    tags=['document', 'pdf']
+file_result = await client.create_store(
+    file_content=file_content,
+    guess_mime_type=True,
+    extra_fields= {"tags": ["document", "pdf"], "file_name": "example.pdf"},
+    storage_engine="ipfs" # Optional storage engine (default: "storage")
 )
 
 print(f"File stored with hash: {file_result['item_hash']}")
 
 # Get a file
-file_message = await client.get_message('QmFileHash123')
-file_content = await client.download_file(file_message)
+file_content = await client.download_file('FileHash')
+
+# Get a file from ipfs
+ipfs_file_content = await client.download_file_ipfs('FileHash')
 
 # Save the file
 with open('downloaded_example.pdf', 'wb') as f:
     f.write(file_content)
+
+# Download file to path
+await client.download_file_to_path('FileHash', 'downloaded_example.pdf')
 ```
 
 ## Aggregates (Document Storage)
