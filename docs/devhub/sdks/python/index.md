@@ -72,16 +72,19 @@ async with AuthenticatedAlephHttpClient(account=account) as client:
 
 ```python
 # Solana
-from aleph_client.chains.solana import SOLAccount
+from aleph.sdk.chains.solana import SOLAccount
 sol_account = SOLAccount(private_key)
 
 # Substrate (Polkadot, Kusama, etc.)
-from aleph_client.chains.substrate import DOTAccount
+from aleph.sdk.chains.substrate import DOTAccount
+from aleph
 dot_account = DOTAccount(private_key)
 
-# Avalanche
-from aleph_client.chains.avalanche import AVAXAccount
-avax_account = AVAXAccount(private_key)
+# Evm Chains (Avalanche, Base) mainly use for PAYG Features
+from aleph.sdk.chains.evm import EVMAccount
+from aleph_message.models import Chain
+
+avax_account = EVMAccount(private_key=private_key, chain=Chain.AVAX) # With this account you can manage PAYG flow
 ```
 
 ## Storage
