@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Aleph Cloud"
-  text: "Decentralized Cloud Services"
+  text: "Decentralized Cloud Solutions"
   tagline: Build powerful decentralized applications with storage, computing, and indexing services
   actions:
     - theme: brand

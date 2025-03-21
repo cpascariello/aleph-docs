@@ -7,6 +7,8 @@ The Aleph Cloud network is composed of 2 sets of nodes:
 - **CCNs (Core Channel Nodes)**: The backbone of the P2P network. They serve as an entry point into the network through an API (similar to a blockchain node's RPC).
 - **CRNs (Compute Resource Nodes)**: Responsible for the actual compute and storage available on Aleph Cloud. CRNs must be tied manually to a single CCN, and each CCN is incentivized to tie up to 3 CRNs.
 
+![CCN-Network](/CCN-Network.svg)
+
 ## Messages
 
 In Aleph Cloud terminology, a "_message_" is similar to a "_transaction_" for a blockchain: it is a set of data sent by an end user, propagated through the entire peer-to-peer network.
