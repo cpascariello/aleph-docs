@@ -92,13 +92,13 @@ avax_account = EVMAccount(private_key=private_key, chain=Chain.AVAX) # With this
 ### Store Data
 
 ```python
-# Store a simple message
-result = await client.create_store(
+# Store a simple message 
+message, status = await client.create_store(
     "Hello, Aleph.im!",
-    tags=['example', 'hello-world']
+    extra_fields= {"tags": ["example", "hello-world"]}
 )
 
-print(f"Stored message with hash: {result['item_hash']}")
+print(f"Stored message with hash: {result['item_hash']} Status: {status}")
 
 # Store a JSON object
 user_data = {
@@ -107,12 +107,12 @@ user_data = {
     "age": 30
 }
 
-json_result = await client.create_store(
+json_result, status = await client.create_store(
     user_data,
-    tags=['user', 'profile']
+    extra_fields= {"tags": ["example", "hello-world"]}
 )
 
-print(f"Stored JSON with hash: {json_result['item_hash']}")
+print(f"Stored JSON with hash: {json_result['item_hash']}, Status: {status}")
 ```
 
 ### Retrieve Data
