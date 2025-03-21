@@ -1,17 +1,17 @@
 # Python SDK
 
-The Aleph Cloud Python SDK (`aleph-client`) provides a comprehensive set of tools for interacting with the Aleph Cloud network from Python applications. This guide covers installation, basic usage, and common patterns.
+The Aleph Cloud Python SDK (`aleph-sdk-python`) provides a comprehensive set of tools for interacting with the Aleph Cloud network from Python applications. This guide covers installation, basic usage, and common patterns.
 
 ## Installation
 
 ```bash
-pip install aleph-client
+pip install aleph-sdk-python
 ```
 
 For development versions:
 
 ```bash
-pip install git+https://github.com/aleph-im/aleph-client.git
+pip install git+https://github.com/aleph-im/aleph-sdk-python.git
 ```
 
 ## Basic Setup
