@@ -119,13 +119,19 @@ print(f"Stored JSON with hash: {json_result['item_hash']}, Status: {status}")
 
 ```python
 # Get a message by hash
-message = await client.get_message('QmHash123')
+message = await client.get_message('item_hash')
 print(message['content'])
 
-# Query messages by tags
-messages = await client.get_messages(
-    tags=['user', 'profile'],
-    limit=10
+# Query messages with status 
+messages, status = await client.get_messages(
+    item_hash=item_hash,
+    with_status=True
+)
+# Get 100 lasts messages
+message = await client.get_messages(
+    page_size=100,
+    page=1,
+    ignore_invalid_messages=True
 )
 
 for msg in messages:
