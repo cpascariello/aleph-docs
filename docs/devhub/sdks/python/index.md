@@ -141,26 +141,31 @@ for msg in messages:
 ### File Storage
 
 ```python
-# Upload a file
+# Upload a file on ipfs
 with open('example.pdf', 'rb') as f:
     file_content = f.read()
     
-file_result = await client.create_store_file(
-    file_content,
-    file_name='example.pdf',
-    file_type='application/pdf',
-    tags=['document', 'pdf']
+file_result = await client.create_store(
+    file_content=file_content,
+    guess_mime_type=True,
+    extra_fields= {"tags": ["document", "pdf"], "file_name": "example.pdf"},
+    storage_engine="ipfs" # Optional storage engine (default: "storage")
 )
 
 print(f"File stored with hash: {file_result['item_hash']}")
 
 # Get a file
-file_message = await client.get_message('QmFileHash123')
-file_content = await client.download_file(file_message)
+file_content = await client.download_file('FileHash')
+
+# Get a file from ipfs
+ipfs_file_content = await client.download_file_ipfs('FileHash')
 
 # Save the file
 with open('downloaded_example.pdf', 'wb') as f:
     f.write(file_content)
+
+# Download file to path
+await client.download_file_to_path('FileHash', 'downloaded_example.pdf')
 ```
 
 ## Aggregates (Document Storage)
