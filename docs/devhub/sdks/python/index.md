@@ -14,29 +14,24 @@ For development versions:
 pip install git+https://github.com/aleph-im/aleph-sdk-python.git
 ```
 
-## Basic Setup
+## Client
 
-### Synchronous Client
+| Client Type                         | Class                             | Use Case                               | Auth Required |
+|------------------------------------|-----------------------------------|----------------------------------------|---------------|
+| **HTTP Client (Authenticated)**    | `AuthenticatedAlephHttpClient`   | Send messages, upload files, etc.     | ✅ Yes         |
+| **HTTP Client**         | `AlephHttpClient`                | Get Messages, get files, etc;           | ❌ No |
+| **VM Client**                      | `VMClient`                       | Interact with Aleph Virtual Machines  | ✅ Yes         |
+| **Confidential VM Client**         | `VMConfidentialClient`          | Interact with confidential VMs        | ✅ Yes         |
 
+### Setting up a basic client
 ```python
-from aleph_client.synchronous import SyncClient
-
-# Create a client instance
-client = SyncClient()
-```
-
-### Asynchronous Client (Recommended)
-
-```python
-import asyncio
-from aleph_client.asynchronous import AsyncClient
+from aleph.sdk.client import AlephHttpClient
 
 async def main():
-    # Create a client instance
-    client = AsyncClient()
-    # Use the client...
+    async with AlephHttpClient() as client:
+        # Use the client here
+        pass
 
-# Run the async function
 asyncio.run(main())
 ```
 
