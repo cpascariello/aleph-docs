@@ -70,8 +70,8 @@ async function verifyRandom(result) {
 ### Using the Python SDK
 
 ```python
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.vrf import generate_random, verify_random
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.vrf import generate_random, verify_random
 
 async def generate_and_verify():
     client = AsyncClient()

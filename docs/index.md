@@ -28,7 +28,7 @@ features:
     details: Run code in a decentralized environment with on-demand functions and persistent virtual machines.
     link: /devhub/computing/
     linkText: Computing Guide
-  - icon: 📊
+  - icon: 🗂️
     title: Blockchain Indexing
     details: Query and index blockchain data efficiently for your decentralized applications.
     link: /devhub/guides/indexing/

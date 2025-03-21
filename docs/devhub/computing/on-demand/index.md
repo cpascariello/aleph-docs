@@ -68,8 +68,8 @@ async function deployFunction() {
 ```
 
 ```python [Python]
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.program import create_program
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.program import create_program
 
 async def deploy_function():
     client = AsyncClient()

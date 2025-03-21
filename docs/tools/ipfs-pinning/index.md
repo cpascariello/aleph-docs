@@ -75,8 +75,8 @@ async function pinContent() {
 #### Using the Python SDK
 
 ```python
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.storage import pin_ipfs
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.storage import pin_ipfs
 
 async def pin_content():
     client = AsyncClient()

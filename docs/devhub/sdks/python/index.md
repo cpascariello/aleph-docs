@@ -25,6 +25,7 @@ pip install git+https://github.com/aleph-im/aleph-sdk-python.git
 
 ### Setting up a basic client
 ```python
+
 from aleph.sdk.client import AlephHttpClient
 
 async def main():
@@ -40,6 +41,7 @@ asyncio.run(main())
 ### Using a Private Key
 
 ```python
+
 from aleph.sdk.chains.ethereum import ETHAccount
 from aleph.sdk.client import AuthenticatedAlephHttpClient
 
@@ -263,7 +265,7 @@ print(f"VM status: {status['state']}")
 ### Query Blockchain Events
 
 ```python
-from aleph_client.indexer import IndexerClient
+from aleph_sdk_python.indexer import IndexerClient
 
 # Create an indexer client
 indexer = IndexerClient()
@@ -294,7 +296,7 @@ for tx in transactions:
 
 ```python
 import asyncio
-from aleph_client.indexer import IndexerWSClient
+from aleph_sdk_python.indexer import IndexerWSClient
 
 async def handle_event(event):
     print(f"New transfer: {event['args']['from']} -> {event['args']['to']}: {event['args']['value']}")
@@ -339,7 +341,7 @@ content = await client.ipfs_get('QmHash123')
 ## VRF (Verifiable Random Function)
 
 ```python
-from aleph_client.vrf import generate_random, verify_random
+from aleph_sdk_python.vrf import generate_random, verify_random
 
 # Generate a random number
 random_result = await generate_random(
@@ -367,7 +369,7 @@ print(f"Is valid: {is_valid}")
 ## Error Handling
 
 ```python
-from aleph_client.exceptions import AlephClientError, MessageNotFoundError
+from aleph_sdk_python.exceptions import AlephClientError, MessageNotFoundError
 
 try:
     message = await client.get_message('NonExistentHash')
@@ -406,7 +408,7 @@ client = AsyncClient()
 
 ```python
 from fastapi import FastAPI, HTTPException
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -448,7 +450,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import asyncio
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 
 client = AsyncClient()
 
@@ -548,7 +550,7 @@ for msg in custom_messages:
 ### Encryption
 
 ```python
-from aleph_client.utils import encrypt_message, decrypt_message
+from aleph_sdk_python.utils import encrypt_message, decrypt_message
 
 # Encrypt a message for a specific recipient
 recipient_public_key = "0x..."
@@ -575,7 +577,7 @@ print(f"Decrypted content: {decrypted_content}")
 
 ## Resources
 
-- [GitHub Repository](https://github.com/aleph-im/aleph-client)
+- [GitHub Repository](https://github.com/aleph-im/aleph-sdk-python)
 - [PyPI Package](https://pypi.org/project/aleph-client/)
 - [API Reference](/devhub/api/rest/)
 - [Example Projects](/devhub/examples/web3-apps/)

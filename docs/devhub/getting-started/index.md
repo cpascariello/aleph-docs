@@ -61,7 +61,7 @@ await account.connect(); // Connect with MetaMask or other provider
 ```
 
 ```python [Python]
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 
 # Create a client instance
 client = AsyncClient()

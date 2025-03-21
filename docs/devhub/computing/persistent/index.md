@@ -75,8 +75,8 @@ async function deployVM() {
 ```
 
 ```python [Python]
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.vm.instance import create_vm
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.vm.instance import create_vm
 
 async def deploy_vm():
     client = AsyncClient()

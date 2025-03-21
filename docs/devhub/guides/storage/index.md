@@ -86,8 +86,8 @@ console.log(`Stored JSON with hash: ${jsonResult.item_hash}`);
 ```
 
 ```python [Python]
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 # Create an account (or connect with existing one)
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
@@ -380,7 +380,7 @@ async function encryptWithAES(data, key) {
 ```
 
 ```python [Python]
-from aleph_client.utils import encrypt_message, decrypt_message
+from aleph_sdk_python.utils import encrypt_message, decrypt_message
 
 # Encrypt a message for a specific recipient
 recipient_public_key = "0x..."
