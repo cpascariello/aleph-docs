@@ -422,4 +422,4 @@ The Aleph.im team is happy to provide guidance and support for community SDK dev
 - [REST API Documentation](/devhub/api/rest/)
 - [GraphQL API Documentation](/devhub/api/graphql/)
 - [TypeScript SDK Source](https://github.com/aleph-im/aleph-sdk) (reference implementation)
-- [Python SDK Source](https://github.com/aleph-im/aleph-client) (reference implementation)
+- [Python SDK Source](https://github.com/aleph-im/aleph-sdk-python) (reference implementation)

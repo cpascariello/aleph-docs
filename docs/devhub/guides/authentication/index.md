@@ -149,8 +149,8 @@ const result = await aleph.storage.store(
 ```
 
 ```python [Python]
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 # Create an account from a private key
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
@@ -271,8 +271,8 @@ const result = await aleph.storage.store(
 #### Python
 
 ```python
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.chains.solana import SOLAccount
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.chains.solana import SOLAccount
 
 # Create an account from a private key
 private_key = [1, 2, 3, ...] # Your private key as a list of bytes
@@ -789,8 +789,8 @@ app.listen(PORT, () => {
 import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 app = FastAPI()
 

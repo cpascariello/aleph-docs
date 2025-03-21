@@ -123,8 +123,8 @@ console.log(`Indexer created with ID: ${result.indexer_id}`);
 #### Python
 
 ```python
-from aleph_client.asynchronous import AsyncClient
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.asynchronous import AsyncClient
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 # Create an account (or connect with existing one)
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"

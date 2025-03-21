@@ -11,7 +11,7 @@ pip install aleph-client
 For development versions:
 
 ```bash
-pip install git+https://github.com/aleph-im/aleph-client.git
+pip install git+https://github.com/aleph-im/aleph-sdk-python.git
 ```
 
 ## Basic Setup
@@ -19,7 +19,7 @@ pip install git+https://github.com/aleph-im/aleph-client.git
 ### Synchronous Client
 
 ```python
-from aleph_client.synchronous import SyncClient
+from aleph_sdk_python.synchronous import SyncClient
 
 # Create a client instance
 client = SyncClient()
@@ -29,7 +29,7 @@ client = SyncClient()
 
 ```python
 import asyncio
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 
 async def main():
     # Create a client instance
@@ -45,7 +45,7 @@ asyncio.run(main())
 ### Using a Private Key
 
 ```python
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 # Create an account from a private key
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
@@ -58,7 +58,7 @@ client = AsyncClient(account=account)
 ### Using a Mnemonic
 
 ```python
-from aleph_client.chains.ethereum import ETHAccount
+from aleph_sdk_python.chains.ethereum import ETHAccount
 
 # Create an account from a mnemonic
 mnemonic = "word1 word2 word3 word4 ... word12"
@@ -72,15 +72,15 @@ client = AsyncClient(account=account)
 
 ```python
 # Solana
-from aleph_client.chains.solana import SOLAccount
+from aleph_sdk_python.chains.solana import SOLAccount
 sol_account = SOLAccount(private_key)
 
 # Substrate (Polkadot, Kusama, etc.)
-from aleph_client.chains.substrate import DOTAccount
+from aleph_sdk_python.chains.substrate import DOTAccount
 dot_account = DOTAccount(private_key)
 
 # Avalanche
-from aleph_client.chains.avalanche import AVAXAccount
+from aleph_sdk_python.chains.avalanche import AVAXAccount
 avax_account = AVAXAccount(private_key)
 ```
 
@@ -249,7 +249,7 @@ print(f"VM status: {status['state']}")
 ### Query Blockchain Events
 
 ```python
-from aleph_client.indexer import IndexerClient
+from aleph_sdk_python.indexer import IndexerClient
 
 # Create an indexer client
 indexer = IndexerClient()
@@ -280,7 +280,7 @@ for tx in transactions:
 
 ```python
 import asyncio
-from aleph_client.indexer import IndexerWSClient
+from aleph_sdk_python.indexer import IndexerWSClient
 
 async def handle_event(event):
     print(f"New transfer: {event['args']['from']} -> {event['args']['to']}: {event['args']['value']}")
@@ -325,7 +325,7 @@ content = await client.ipfs_get('QmHash123')
 ## VRF (Verifiable Random Function)
 
 ```python
-from aleph_client.vrf import generate_random, verify_random
+from aleph_sdk_python.vrf import generate_random, verify_random
 
 # Generate a random number
 random_result = await generate_random(
@@ -353,7 +353,7 @@ print(f"Is valid: {is_valid}")
 ## Error Handling
 
 ```python
-from aleph_client.exceptions import AlephClientError, MessageNotFoundError
+from aleph_sdk_python.exceptions import AlephClientError, MessageNotFoundError
 
 try:
     message = await client.get_message('NonExistentHash')
@@ -392,7 +392,7 @@ client = AsyncClient()
 
 ```python
 from fastapi import FastAPI, HTTPException
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -434,7 +434,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import asyncio
-from aleph_client.asynchronous import AsyncClient
+from aleph_sdk_python.asynchronous import AsyncClient
 
 client = AsyncClient()
 
@@ -534,7 +534,7 @@ for msg in custom_messages:
 ### Encryption
 
 ```python
-from aleph_client.utils import encrypt_message, decrypt_message
+from aleph_sdk_python.utils import encrypt_message, decrypt_message
 
 # Encrypt a message for a specific recipient
 recipient_public_key = "0x..."
@@ -561,7 +561,7 @@ print(f"Decrypted content: {decrypted_content}")
 
 ## Resources
 
-- [GitHub Repository](https://github.com/aleph-im/aleph-client)
+- [GitHub Repository](https://github.com/aleph-im/aleph-sdk-python)
 - [PyPI Package](https://pypi.org/project/aleph-client/)
 - [API Reference](/devhub/api/rest/)
 - [Example Projects](/devhub/examples/web3-apps/)
