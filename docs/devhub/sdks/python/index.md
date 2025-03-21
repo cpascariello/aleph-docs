@@ -40,27 +40,32 @@ asyncio.run(main())
 ### Using a Private Key
 
 ```python
-from aleph_client.chains.ethereum import ETHAccount
+from aleph.sdk.chains.ethereum import ETHAccount
+from aleph.sdk.client import AuthenticatedAlephHttpClient
 
 # Create an account from a private key
 private_key = "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
 account = ETHAccount(private_key)
 
 # Create a client with this account
-client = AsyncClient(account=account)
+async with AuthenticatedAlephHttpClient(account=account) as client:
+    # Use the client here
+    pass
 ```
 
 ### Using a Mnemonic
 
 ```python
-from aleph_client.chains.ethereum import ETHAccount
+from aleph.sdk.chains.ethereum import ETHAccount
 
 # Create an account from a mnemonic
 mnemonic = "word1 word2 word3 word4 ... word12"
 account = ETHAccount.from_mnemonic(mnemonic)
 
 # Create a client with this account
-client = AsyncClient(account=account)
+async with AuthenticatedAlephHttpClient(account=account) as client:
+    # Use the client here
+    pass
 ```
 
 ### Using Other Chains
