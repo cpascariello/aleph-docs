@@ -19,6 +19,32 @@ export default defineConfig({
       { text: 'DevHub', link: '/devhub' },
       { text: 'Tools', link: '/tools' }
     ],
+    
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: 'Search',
+                buttonAriaLabel: 'Search documentation'
+              },
+              modal: {
+                noResultsText: 'No results for',
+                resetButtonTitle: 'Clear search query',
+                footer: {
+                  selectText: 'to select',
+                  navigateText: 'to navigate',
+                  closeText: 'to close'
+                }
+              }
+            }
+          }
+        },
+        detailedView: true
+      }
+    },
 
     // Sidebar configuration with path-based keys
     sidebar: {

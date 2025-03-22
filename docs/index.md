@@ -50,6 +50,8 @@ features:
     linkText: Learn More
 ---
 
+<HomeSearch />
+
 ## Why Aleph Cloud?
 
 Aleph Cloud provides a suite of decentralized cloud services that enable developers to build truly decentralized applications without compromising on performance or user experience.

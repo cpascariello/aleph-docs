@@ -7,6 +7,9 @@ import './custom.css'
 import './hero-gradient.css'
 import './typography.css'
 
+// Import custom components
+import HomeSearch from './components/HomeSearch.vue'
+
 export default {
   extends: DefaultTheme,
   Layout: () => {
@@ -15,6 +18,7 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
+    // Register custom components
+    app.component('HomeSearch', HomeSearch)
   }
 } satisfies Theme
