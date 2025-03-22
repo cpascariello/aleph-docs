@@ -39,7 +39,10 @@ function generateVersion() {
 
 // Function to check if running locally
 function isLocalBuild() {
-  return process.env.NODE_ENV !== 'production';
+  // Check for build command in npm_lifecycle_event
+  const npmCommand = process.env.npm_lifecycle_event || '';
+  // Consider it a production build if it contains 'build' or 'preview'
+  return !npmCommand.includes('build') && !npmCommand.includes('preview');
 }
 
 // Function to get local URL

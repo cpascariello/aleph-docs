@@ -2,7 +2,7 @@
   <div class="version-footer">
     <div class="version-container">
       <span class="version-text">Version {{ versionInfo.version }}</span>
-      <span v-if="versionInfo.isLocal" class="version-text">
+      <span v-if="versionInfo.isLocal && isDevEnvironment" class="version-text">
         <a :href="versionInfo.localUrl" target="_blank" class="version-link">{{ versionInfo.localUrl }}</a>
       </span>
     </div>
@@ -29,22 +29,37 @@ const versionInfo = ref({
   localUrl: ''
 })
 
+// Initialize with false, will be updated in onMounted if in browser
+const isDevEnvironment = ref(false)
+
 onMounted(async () => {
-  try {
-    // Load from public directory
-    const response = await fetch('/version.json')
-    if (response.ok) {
-      versionInfo.value = await response.json()
-    } else {
-      console.error('Failed to load version information')
-    }
-  } catch (error) {
-    console.error('Error loading version information:', error)
-    // Fallback version in case the file can't be loaded
-    versionInfo.value = {
-      version: new Date().toISOString().split('T')[0].replace(/-/g, '') + '-local',
-      isLocal: true,
-      localUrl: window.location.origin
+  // Check if we're in a browser environment
+  if (typeof window !== 'undefined') {
+    // Set development environment check
+    isDevEnvironment.value = window.location.hostname === 'localhost' || 
+                            window.location.hostname === '127.0.0.1'
+    
+    try {
+      // Load from public directory
+      const response = await fetch('/version.json')
+      if (response.ok) {
+        const data = await response.json()
+        // For production builds, always set isLocal to false regardless of what the file says
+        if (!isDevEnvironment.value) {
+          data.isLocal = false
+        }
+        versionInfo.value = data
+      } else {
+        console.error('Failed to load version information')
+      }
+    } catch (error) {
+      console.error('Error loading version information:', error)
+      // Fallback version in case the file can't be loaded
+      versionInfo.value = {
+        version: new Date().toISOString().split('T')[0].replace(/-/g, '') + '-local',
+        isLocal: isDevEnvironment.value,
+        localUrl: window.location.origin
+      }
     }
   }
 })
