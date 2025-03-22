@@ -96,28 +96,18 @@ npm run find-broken-links -- --force
 
 The `--prompt` flag is already included in the build and preview commands, allowing you to decide whether to proceed with broken links on a case-by-case basis.
 
-#### Broken Links Options
-
-The broken links checker offers different modes to accommodate your workflow:
-
 | Command | Description |
 |---------|-------------|
 | `npm run find-broken-links` | Default mode - exits with error if broken links are found |
-| `npm run find-broken-links:continue` | Reports broken links but continues regardless |
-| `npm run find-broken-links:interactive` | Asks whether to continue when broken links are found |
+| `npm run find-broken-links -- --force` | Reports broken links but continues regardless |
+| `npm run find-broken-links -- --prompt` | Asks whether to continue when broken links are found |
 
-These options are also available for the build and preview commands:
+The build and preview commands already include the `--prompt` flag by default:
 
 ```bash
-# Build with different broken links modes
-npm run docs:build               # Strict mode (default)
-npm run docs:build:continue      # Always continue despite broken links
-npm run docs:build:interactive   # Ask whether to continue
-
-# Preview with different broken links modes
-npm run docs:preview             # Strict mode (default)
-npm run docs:preview:continue    # Always continue despite broken links
-npm run docs:preview:interactive # Ask whether to continue
+# These commands will prompt you if broken links are found
+npm run docs:build
+npm run docs:preview
 ```
 
 ## Documentation Structure
