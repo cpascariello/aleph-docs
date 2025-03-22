@@ -4,7 +4,7 @@ Welcome to the Aleph Cloud documentation. This section provides an overview of t
 
 ## What is Aleph Cloud?
 
-[Aleph Cloud](https://aleph.cloud) is an open-source off-chain P2P (peer-to-peer) network.
+[Aleph Cloud](https://aleph.cloud) [nodes](/test) is an open-source off-chain P2P (peer-to-peer) network.
 It offers decentralized key-value store, file storage, function execution and virtual machine provisioning.
 Interactions with the network rely on decentralized identities that are interoperable with many major blockchain networks,
 such as Ethereum, Tezos, and Solana.

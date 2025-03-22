@@ -56,12 +56,68 @@ npm run docs:build
 
 The built files will be in the `docs/.vitepress/dist` directory.
 
+> **Note:** The build process includes a broken links checker that will prompt you to continue or halt the build if any broken internal links are found. A report will be generated at `/docs/tools/broken-links.md` with details about the broken links.
+
 ### Preview Production Build
 
 To preview the production build locally:
 
 ```bash
 npm run docs:preview
+```
+
+> **Note:** Like the build process, the preview command also runs the broken links checker with a prompt before starting the preview server.
+
+### Finding Broken Links
+
+You can run the broken links checker separately with:
+
+```bash
+npm run find-broken-links
+```
+
+This will scan all markdown files for broken internal links and generate a report at `/docs/tools/broken-links.md`. The report includes:
+
+- A table of all broken links with their locations and URLs
+- Links to the files containing broken links
+- Instructions for fixing the broken links
+
+#### Options for Handling Broken Links
+
+You can pass additional flags to control how broken links are handled:
+
+```bash
+# Prompt to continue or halt if broken links are found (default in build/preview)
+npm run find-broken-links -- --prompt
+
+# Always continue despite broken links
+npm run find-broken-links -- --force
+```
+
+The `--prompt` flag is already included in the build and preview commands, allowing you to decide whether to proceed with broken links on a case-by-case basis.
+
+#### Broken Links Options
+
+The broken links checker offers different modes to accommodate your workflow:
+
+| Command | Description |
+|---------|-------------|
+| `npm run find-broken-links` | Default mode - exits with error if broken links are found |
+| `npm run find-broken-links:continue` | Reports broken links but continues regardless |
+| `npm run find-broken-links:interactive` | Asks whether to continue when broken links are found |
+
+These options are also available for the build and preview commands:
+
+```bash
+# Build with different broken links modes
+npm run docs:build               # Strict mode (default)
+npm run docs:build:continue      # Always continue despite broken links
+npm run docs:build:interactive   # Ask whether to continue
+
+# Preview with different broken links modes
+npm run docs:preview             # Strict mode (default)
+npm run docs:preview:continue    # Always continue despite broken links
+npm run docs:preview:interactive # Ask whether to continue
 ```
 
 ## Documentation Structure
@@ -74,6 +130,9 @@ npm run docs:preview
   - `/docs/nodes/` - Node documentation
   - `/docs/devhub/` - Developer Hub
   - `/docs/tools/` - Tools and utilities
+    - `/docs/tools/broken-links.md` - Report of broken internal links
+- `/scripts/` - Utility scripts
+  - `/scripts/find-broken-links.js` - Script to find broken internal links
 
 ## Customization
 

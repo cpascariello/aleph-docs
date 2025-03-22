@@ -1,11 +1,13 @@
 {
   "devDependencies": {
+    "glob": "^10.3.10",
     "vitepress": "^1.6.3",
     "vue": "^3.5.13"
   },
   "scripts": {
+    "find-broken-links": "node scripts/find-broken-links.js",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:build": "npm run find-broken-links -- --prompt && vitepress build docs",
+    "docs:preview": "npm run find-broken-links -- --prompt && vitepress preview docs"
   }
 }
