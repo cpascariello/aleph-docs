@@ -5,9 +5,9 @@
     "vue": "^3.5.13"
   },
   "scripts": {
-    "find-broken-links": "node scripts/find-broken-links.js",
+    "links": "node scripts/links.js",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "npm run find-broken-links -- --prompt && vitepress build docs",
-    "docs:preview": "npm run find-broken-links -- --prompt && vitepress preview docs"
+    "docs:build": "npm run links -- --prompt && vitepress build docs",
+    "docs:preview": "npm run links -- --prompt && vitepress preview docs"
   }
 }

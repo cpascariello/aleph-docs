@@ -6,7 +6,7 @@ This guide will walk you through the process of installing and setting up an Ale
 
 Before you begin, ensure you have:
 
-- A server meeting the [hardware requirements](/nodes/core/introduction/#hardware-requirements)
+- A server meeting the [hardware requirements](/nodes/compute/requirements/)
 - Ubuntu 20.04 LTS or later (recommended operating system)
 - Root or sudo access to your server
 - Basic knowledge of Linux command line

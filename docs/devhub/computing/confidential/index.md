@@ -45,7 +45,7 @@ To create a confidential virtual machine, you'll need:
 
 - A Linux system on x86_64 architecture (not Mac) with IPv6 connectivity
 - The following software installed:
-  - [aleph-client](../../tools/aleph-client/) command-line tool
+  - [aleph-client](/tools/aleph-client/) command-line tool
   - [sevctl](https://github.com/virtee/sevctl) tool from AMD
   - An OpenSSH keypair
   - An IPFS Server
@@ -89,4 +89,4 @@ If you encounter issues with confidential computing, refer to our [troubleshooti
 - [Detailed Requirements](/devhub/computing/confidential/requirements)
 - [Creating an Encrypted Disk Image](/devhub/computing/confidential/encrypted-disk)
 - [Deploying a Confidential Instance](/devhub/computing/confidential/instance)
-- [Troubleshooting Guide](/devhub/computing/confidential/troubleshooting)
+- [Troubleshooting Guide](/nodes/resources/troubleshooting/)

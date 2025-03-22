@@ -152,7 +152,7 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .home-search {
-    padding: 2rem 3rem;
+    padding: 2rem 1rem;
   }
   
   .home-search h2 {

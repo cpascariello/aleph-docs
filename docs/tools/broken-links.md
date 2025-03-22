@@ -1,33 +1,35 @@
----
-title: Broken Links Report
-description: A list of broken links found in the documentation
----
-
 # Broken Links Report
 
-This page lists all broken internal links found in the documentation. Please update these links to point to valid pages.
+Found 25 broken links in the documentation.
 
-## Found 11 broken links
+## List of Broken Links
 
-| File | Link Text | Broken URL |
-|------|-----------|------------|
-| [nodes/core/introduction/index.md](/nodes/core/introduction/index) | Node Backups | `/nodes/resources/backups/` |
-| [nodes/core/installation/index.md](/nodes/core/installation/index) | Node Backups | `/nodes/resources/backups/` |
-| [nodes/core/configuration/index.md](/nodes/core/configuration/index) | Node Backups | `/nodes/resources/backups/` |
-| [nodes/compute/requirements/index.md](/nodes/compute/requirements/index) | Setup Guide | `/nodes/compute/setup/` |
-| [nodes/compute/introduction/index.md](/nodes/compute/introduction/index) | Setup Guide | `/nodes/compute/setup/` |
-| [devhub/index.md](/devhub/index) | Computing Guide | `/devhub/guides/computing/` |
-| [devhub/computing/confidential/instance.md](/devhub/computing/confidential/instance) | Aleph Cloud Client Usage | `/tools/aleph-client/usage` |
-| [devhub/computing/confidential/index.md](/devhub/computing/confidential/index) | aleph-client | `../../tools/aleph-client/` |
-| [about/index.md](/about/index) | nodes | `/test` |
-| [about/index.md](/about/index) | Tutorial to run Python code on aleph.im | `/devhub/guides/computing/` |
-| [about/network/architecture/index.md](/about/network/architecture/index) | The Aleph Cloud network | `/about/network/network-overview.svg` |
+| File | Link Text | Link URL |
+| ---- | --------- | ------- |
+| [nodes/index.md](/nodes/index) | 33 | Node Monitoring | `/nodes/resources/monitoring/` |
+| [nodes/index.md](/nodes/index) | 34 | Troubleshooting | `/nodes/resources/troubleshooting/` |
+| [nodes/core/introduction/index.md](/nodes/core/introduction/index) | 43 | Node Backups | `/nodes/resources/backups/` |
+| [nodes/core/installation/index.md](/nodes/core/installation/index) | 125 | Node Backups | `/nodes/resources/backups/` |
+| [nodes/core/installation/index.md](/nodes/core/installation/index) | 126 | Node Monitoring | `/nodes/resources/monitoring/` |
+| [nodes/core/installation/index.md](/nodes/core/installation/index) | 128 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [nodes/core/configuration/index.md](/nodes/core/configuration/index) | 182 | Node Backups | `/nodes/resources/backups/` |
+| [nodes/core/configuration/index.md](/nodes/core/configuration/index) | 183 | Node Monitoring | `/nodes/resources/monitoring/` |
+| [nodes/core/configuration/index.md](/nodes/core/configuration/index) | 186 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [nodes/compute/requirements/index.md](/nodes/compute/requirements/index) | 107 | Setup Guide | `/nodes/compute/setup/` |
+| [nodes/compute/requirements/index.md](/nodes/compute/requirements/index) | 109 | advanced features | `/nodes/compute/advanced/enable-confidential/` |
+| [nodes/compute/requirements/index.md](/nodes/compute/requirements/index) | 111 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [nodes/compute/introduction/index.md](/nodes/compute/introduction/index) | 43 | Setup Guide | `/nodes/compute/setup/` |
+| [nodes/compute/introduction/index.md](/nodes/compute/introduction/index) | 44 | Advanced Features | `/nodes/compute/advanced/enable-confidential/` |
+| [nodes/compute/installation/index.md](/nodes/compute/installation/index) | 213 | advanced features | `/nodes/compute/advanced/enable-confidential/` |
+| [nodes/compute/installation/index.md](/nodes/compute/installation/index) | 214 | monitoring | `/nodes/resources/monitoring/` |
+| [nodes/compute/installation/index.md](/nodes/compute/installation/index) | 215 | troubleshooting | `/nodes/resources/troubleshooting/` |
+| [devhub/index.md](/devhub/index) | 29 | Computing Guide | `/devhub/guides/computing/` |
+| [devhub/computing/confidential/instance.md](/devhub/computing/confidential/instance) | 164 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [devhub/computing/confidential/instance.md](/devhub/computing/confidential/instance) | 165 | Aleph Cloud Client Usage | `/tools/aleph-client/usage/` |
+| [devhub/computing/confidential/index.md](/devhub/computing/confidential/index) | 92 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [about/index.md](/about/index) | 30 | Tutorial to run Python code on aleph.im | `/devhub/guides/computing/` |
+| [about/index.md](/about/index) | 32 | Troubleshooting Guide | `/nodes/resources/troubleshooting/` |
+| [about/resources/community/index.md](/about/resources/community/index) | 50 | Tutorials | `/devhub/guides/` |
+| [about/network/consensus/index.md](/about/network/consensus/index) | 66 | Aleph Cloud whitepaper | `/about/resources/whitepaper/` |
 
-## How to fix broken links
-
-1. Open the file containing the broken link
-2. Find the link text and update the URL to point to a valid page
-3. Save the file and run the build again to verify the link is fixed
-
-
-Last updated: 2025-03-22
+*Report generated on 3/22/2025, 5:16:53 PM*
