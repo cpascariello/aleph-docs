@@ -1,4 +1,7 @@
 {
+  "name": "aleph-docs",
+  "version": "1.0.0",
+  "description": "Aleph Cloud Documentation",
   "devDependencies": {
     "glob": "^10.3.10",
     "vitepress": "^1.6.3",
@@ -6,8 +9,9 @@
   },
   "scripts": {
     "links": "node scripts/links.js",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "npm run links -- --prompt && vitepress build docs",
-    "docs:preview": "npm run links -- --prompt && vitepress preview docs"
+    "version": "node scripts/version.js",
+    "docs:dev": "node scripts/version.js && vitepress dev docs",
+    "docs:build": "npm run links -- --prompt && node scripts/version.js && vitepress build docs",
+    "docs:preview": "npm run links -- --prompt && node scripts/version.js && vitepress preview docs"
   }
 }
