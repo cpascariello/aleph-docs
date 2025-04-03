@@ -174,6 +174,12 @@ function isLinkBroken(link, filePath) {
 
 // Main function to find broken links
 async function findBrokenLinks() {
+  // Check if broken-links.md exists and delete it if it does
+  if (fileExists(outputFile)) {
+    fs.unlinkSync(outputFile);
+    styledConsole('Deleted existing broken-links.md to avoid false positives.', 'warning');
+  }
+
   const brokenLinks = [];
 
   // Find all markdown files

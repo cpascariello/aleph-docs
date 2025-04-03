@@ -4,8 +4,7 @@ Welcome to the Aleph Cloud Tools documentation. This section provides informatio
 
 ## Available Tools
 
-### [Aleph Cloud Client](/tools/aleph-client/)
-
+### Aleph Cloud Client
 The Aleph Cloud Client is a command-line interface (CLI) tool that allows you to interact with all aspects of the Aleph Cloud network:
 
 - Manage storage (files, posts, aggregates)
@@ -13,7 +12,7 @@ The Aleph Cloud Client is a command-line interface (CLI) tool that allows you to
 - Handle payments and staking
 - Interact with the Aleph Cloud API
 
-[Learn more about Aleph Cloud Client →](/tools/aleph-client/)
+[Learn more about Aleph Cloud Client →](/tools/aleph-cli/)
 
 ### [Web Console](/tools/webconsole/)
 

@@ -19,7 +19,7 @@ by leveraging the Aleph Cloud network's decentralized storage and compute capabi
 
 - The Aleph peer-to-peer network, comprised of [Compute Resource Nodes or CRNs](/nodes/compute/introduction/) and [Core Channel Nodes, or CCNs](/nodes/core/introduction/)
 - [Python](/devhub/sdks/python/) and [TypeScript](/devhub/sdks/typescript/) SDKs to integrate Aleph Cloud's decentralized compute and storage solutions into your project
-- A [Python command-line tool](/tools/aleph-client/) to interact with the Aleph Cloud network directly from a terminal
+- A [Python command-line tool](/tools/aleph-cli/) to interact with the Aleph Cloud network directly from a terminal
 - A [Web Console](/tools/webconsole/) to create and manage cloud resources
 - A [Node Operator Dashboard](https://account.aleph.cloud/)
 - A [Message Explorer](https://explorer.aleph.cloud/)
@@ -27,9 +27,9 @@ by leveraging the Aleph Cloud network's decentralized storage and compute capabi
 ## Where to start?
 
 - Use our [Python SDK](/devhub/sdks/python/) and [TypeScript SDK](/devhub/sdks/typescript/).
-- Follow a [Tutorial to run Python code on aleph.im](/devhub/guides/computing/).
+- Follow a <a href="/devhub/guides/computing/" style="color: #ff6666;">Tutorial to run Python code on Aleph Cloud</a>.
 - Become part of the network by managing a [Core Channel Node](/nodes/core/introduction/) or a [Compute Resource Node](/nodes/compute/introduction/).
-- Trouble setting up your node? Check out our [Troubleshooting Guide](/nodes/resources/troubleshooting/).
+- Trouble setting up your node? Check out our <a href="/nodes/resources/troubleshooting/" style="color: #ff6666;">Troubleshooting Guide</a>.
 
 ## Community
 

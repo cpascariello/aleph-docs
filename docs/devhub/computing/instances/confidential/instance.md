@@ -161,8 +161,8 @@ To verify that your instance is running in confidential mode:
 
 ## Next Steps
 
-- [Troubleshooting Guide](/nodes/resources/troubleshooting/) - If you encounter issues with your confidential instance
-- [Aleph Cloud Client Usage](/tools/aleph-client/usage/) - For more advanced instance management commands
+- [Troubleshooting Guide](/devhub/computing/confidential/troubleshooting) - If you encounter issues with your confidential instance
+- [Aleph Cloud Client Usage](/tools/aleph-cli/) - For more advanced instance management commands
 - [Persistent Storage](/devhub/computing/persistent/) - Learn how to attach persistent storage to your instance
 
 ::: warning Security Reminder

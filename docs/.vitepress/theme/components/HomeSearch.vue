@@ -59,7 +59,7 @@ onMounted(() => {
 
 .home-search-wrapper {
   position: relative;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
@@ -104,7 +104,7 @@ onMounted(() => {
   max-width: 600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
+  border-radius: 5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transition: all 0.3s ease;

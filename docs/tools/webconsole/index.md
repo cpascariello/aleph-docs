@@ -141,6 +141,6 @@ If you encounter issues with the Web Console:
 
 ## Next Steps
 
-- [Aleph Cloud Client](/tools/aleph-client/) - Command-line interface for Aleph Cloud
+- [Aleph Cloud Client](/tools/aleph-cli/) - Command-line interface for Aleph Cloud
 - [API Reference](/devhub/api/rest/) - Documentation for the Aleph Cloud REST API
 - [SDK Documentation](/devhub/sdks/typescript/) - Learn how to use the JavaScript/TypeScript SDK

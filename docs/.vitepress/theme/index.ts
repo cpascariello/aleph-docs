@@ -10,6 +10,8 @@ import './typography.css'
 // Import custom components
 import HomeSearch from './components/HomeSearch.vue'
 import VersionFooter from './components/VersionFooter.vue'
+import ActionButtons from './components/ActionButtons.vue'
+import ActionButton from './components/ActionButton.vue'
 
 export default {
   extends: DefaultTheme,
@@ -23,5 +25,7 @@ export default {
     // Register custom components
     app.component('HomeSearch', HomeSearch)
     app.component('VersionFooter', VersionFooter)
+    app.component('ActionButtons', ActionButtons)
+    app.component('ActionButton', ActionButton)
   }
 } satisfies Theme

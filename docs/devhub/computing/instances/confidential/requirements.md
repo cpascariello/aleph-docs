@@ -28,7 +28,7 @@ The `aleph-client` command-line tool is used to interact with the Aleph Cloud ne
 pip install aleph-client
 ```
 
-For detailed installation instructions, see the [aleph-client documentation](/tools/aleph-client/).
+For detailed installation instructions, see the [aleph-client documentation](/tools/aleph-cli/).
 
 ### 2. sevctl
 

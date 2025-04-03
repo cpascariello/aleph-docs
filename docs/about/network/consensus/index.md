@@ -62,5 +62,3 @@ Unlike blockchain systems with probabilistic finality, Aleph Cloud messages have
 - **Efficiency**: Lower resource requirements compared to blockchain consensus
 - **Flexibility**: Different types of messages can have different consensus requirements
 - **Scalability**: The system can scale by adding more nodes without sacrificing performance
-
-For more technical details about the consensus mechanism, refer to the [Aleph Cloud whitepaper](/about/resources/whitepaper/).

@@ -1,119 +1,138 @@
 # Core Channel Node Installation
 
-This guide will walk you through the process of installing and setting up an Aleph Cloud Core Channel Node (CCN).
+This guide will walk you through the process of installing and setting up an Aleph Cloud Core Channel Node (CCN) using Docker Compose.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
-- A server meeting the [hardware requirements](/nodes/compute/requirements/)
-- Ubuntu 20.04 LTS or later (recommended operating system)
-- Root or sudo access to your server
-- Basic knowledge of Linux command line
-- ALEPH tokens for staking (required for node registration)
+- A server meeting the [hardware requirements](/nodes/core/introduction/#hardware-requirements)
+- A system capable of running Docker and Docker Compose _(recent Debian or Ubuntu recommended)_
+- Public IP address
+- The following ports open from the internet:
+  - 4001/tcp
+  - 4001/udp
+  - 4024/tcp
+  - 4025/tcp
+- Shell with sudo access
+- A text editor
 
 ## Installation Steps
 
-### 1. Update Your System
+### 1. Install Docker and Docker Compose
 
-First, ensure your system is up to date:
+On a Debian-based system (Debian, Ubuntu, Linux Mint, etc.), use the following commands:
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
+sudo apt install -y docker.io docker-compose
+sudo systemctl enable docker && sudo systemctl start docker
 ```
 
-### 2. Install Dependencies
-
-Install the required dependencies:
+Add your user to the Docker group:
 
 ```bash
-sudo apt install -y python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools git
+sudo usermod -a -G docker $(whoami)
 ```
 
-### 3. Install the Aleph.im Node Software
+Logout and login again to apply the new group membership.
 
-Clone the repository and install the software:
+### 2. Configure Your Node
+
+PyAleph requires two configuration items:
+- A configuration file, usually named `config.yml`
+- A private key to identify the node on the P2P network
+
+#### Configuration File
+
+Download the PyAleph configuration template:
 
 ```bash
-git clone https://github.com/aleph-im/pyaleph.git
-cd pyaleph
-pip3 install -e .
+wget "https://raw.githubusercontent.com/aleph-im/pyaleph/main/deployment/samples/docker-compose/sample-config.yml"
+mv sample-config.yml config.yml
 ```
 
-### 4. Configure Your Node
+##### Ethereum API URL
 
-Create a configuration directory and copy the sample configuration:
+Your Aleph node needs to connect to an Ethereum API. If you don't run your own Ethereum node, you can use Infura or a similar service:
+
+1. Register on [infura.io](https://infura.io/)
+2. Create a new Ethereum project
+3. Get the hosted endpoint URL for your project (e.g., `https://mainnet.infura.io/v3/<project-id>`)
+4. Edit the `config.yml` file to add the endpoint URL in the field `[ethereum > api_url]`
+
+#### Node Secret Keys
+
+Generate a persistent public-private keypair to authenticate to the network:
 
 ```bash
-mkdir -p ~/.aleph/config
-cp pyaleph/config/example_config.yml ~/.aleph/config/config.yml
+mkdir keys
+docker run --rm --user root --entrypoint "" -v $(pwd)/keys:/opt/pyaleph/keys alephim/pyaleph-node:latest chown aleph:aleph /opt/pyaleph/keys
+docker run --rm --entrypoint "" -v $(pwd)/keys:/opt/pyaleph/keys alephim/pyaleph-node:latest pyaleph --gen-keys --key-dir /opt/pyaleph/keys
 ```
 
-Edit the configuration file to match your setup:
+Verify that the keys were generated successfully:
 
 ```bash
-nano ~/.aleph/config/config.yml
+ls keys/
+# Should show: node-pub.key  node-secret.pkcs8.der
 ```
 
-For detailed configuration options, see the [Configuration Guide](/nodes/core/configuration/).
+### 3. Run the Node with Docker Compose
 
-### 5. Set Up a Systemd Service
-
-Create a systemd service file to manage your node:
+Download the Docker Compose file:
 
 ```bash
-sudo nano /etc/systemd/system/aleph-node.service
+wget "https://raw.githubusercontent.com/aleph-im/pyaleph/main/deployment/samples/docker-compose/docker-compose.yml"
 ```
 
-Add the following content (adjust paths as needed):
+Modify the Docker Compose file to update the paths to your configuration file and keys directory if needed.
 
-```
-[Unit]
-Description=Aleph.im Core Channel Node
-After=network.target
-
-[Service]
-User=YOUR_USERNAME
-WorkingDirectory=/home/YOUR_USERNAME/pyaleph
-ExecStart=/usr/bin/python3 -m pyaleph
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable and start the service:
+Start running the node:
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable aleph-node
-sudo systemctl start aleph-node
+docker-compose up -d
 ```
 
-### 6. Monitor Your Node
+### 4. Verify Your Node
 
-Check the status of your node:
+#### Check the Containers
+
+Verify that all containers have started:
 
 ```bash
-sudo systemctl status aleph-node
+docker-compose ps
 ```
 
-View the logs:
+You should see containers for IPFS and PyAleph with a State of "Up".
+
+#### Check the Metrics
+
+Check that messages are being processed by viewing the metrics endpoint at `http://127.0.0.1:4024/metrics`.
+
+#### Check the Logs
+
+Make sure no errors appear in the logs:
 
 ```bash
-journalctl -u aleph-node -f
+docker-compose logs
 ```
 
 ## Node Registration
 
-After your node is installed and running, you need to register it on the Aleph.im network:
+To receive rewards, you need to register your node on the Aleph.im network:
 
-1. Visit the [Node Operator Dashboard](https://account.aleph.im/)
-2. Connect your wallet containing ALEPH tokens
-3. Follow the registration process, providing your node's details
-4. Stake the required amount of ALEPH tokens
+1. Retrieve your node's multiaddress by running the following command (replace NODE_IP_ADDRESS with your node's public IP):
+
+   ```bash
+   curl -s http://NODE_IP_ADDRESS:4024/api/v0/info/public.json | jq -r .node_multi_addresses[0]
+   ```
+
+2. Visit the [Node Operator Dashboard](https://account.aleph.im/earn/ccn/)
+3. Connect your wallet containing ALEPH tokens
+4. Follow the registration process, providing your node's multiaddress
+5. Stake the required amount of ALEPH tokens _(200,000 ALEPH)_
 
 For detailed registration instructions, refer to the [Node Registration Guide](https://medium.com/aleph-im/aleph-im-node-registration-guide-ea2badb84e75).
 
@@ -121,8 +140,5 @@ For detailed registration instructions, refer to the [Node Registration Guide](h
 
 After successful installation and registration:
 
-1. Learn about [Node Configuration](/nodes/core/configuration/) to optimize your setup
-2. Set up [Node Backups](/nodes/resources/backups/) to protect your data
-3. Explore [Node Monitoring](/nodes/resources/monitoring/) to keep track of your node's performance
-
-If you encounter any issues during installation, check the [Troubleshooting Guide](/nodes/resources/troubleshooting/) or reach out to the community for support.
+1. Set up [Node Backups](/nodes/resources/management/backups/) to protect your data
+2. Explore [Node Monitoring](/nodes/resources/management/monitoring/) to keep track of your node's performance

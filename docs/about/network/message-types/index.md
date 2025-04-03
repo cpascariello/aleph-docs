@@ -1,48 +1,29 @@
-# Message Types
+# Messages
 
-In the Aleph Cloud network, messages are the fundamental units of communication and data transfer. Similar to transactions in a blockchain, messages are propagated throughout the peer-to-peer network and processed by nodes. This page explains the different types of messages supported by Aleph Cloud.
+At its core, the Aleph Cloud network is a messaging system. All the data that transits on the network is represented by Aleph Cloud messages that represent all the possible operations on the network.
 
-## Message Structure
+With Aleph Cloud messages, you can, for example:
 
-All Aleph Cloud messages share a common structure that includes:
+- store files
+- pin content on IPFS
+- create decentralized programs
+- set up key/value databases.
 
-- **Sender**: The address or decentralized identity of the message creator
-- **Type**: The message type that determines how it will be processed
-- **Time**: Timestamp of message creation
-- **Content**: The actual data or instructions contained in the message
-- **Chain**: The blockchain network associated with the sender's address
-- **Signature**: Cryptographic proof that the message was created by the sender
+Users create, sign and transmit messages on the Aleph Cloud network. This can be achieved in a variety of ways:
 
-## Core Message Types
+- by posting a message to a Core Channel Node
+- by broadcasting the message on the Aleph Cloud peer-to-peer network
+- by using the Aleph Cloud smart contracts deployed on supported chains.
 
-### Store Messages
+## Message types
 
-Store messages are used to persist data on the network. They come in several varieties:
+Actual content sent by regular users can currently be of five types:
 
-- **Post**: General-purpose data storage, similar to a document in a NoSQL database
-- **Aggregate**: Updates to a mutable key-value store
-- **Store**: Used for file storage (both IPFS and direct)
-
-### Program Messages
-
-Program messages are used to execute code on the network:
-
-- **Program**: Defines a function or program to be executed on the network
-- **Instance**: Creates a persistent virtual machine instance
-- **Exec**: Triggers execution of a previously defined program
-
-### Indexing Messages
-
-Indexing messages are used to process and index data from external blockchains:
-
-- **Indexer**: Defines an indexing job to process blockchain data
-- **Indexer Status**: Updates the status of an indexing job
-
-### Forget Messages
-
-Forget messages are used to mark other messages as obsolete:
-
-- **Forget**: Indicates that a specific message should no longer be considered valid
+- [AGGREGATE](/devhub/guides/messages/object-types/aggregates.md): provide a decentralized key/value storage.
+- [FORGET](/devhub/guides/messages/object-types/forget.md): delete other messages (see below).
+- [POST](/devhub/guides/messages/object-types/posts.md): provide JSON documents (unique data points, events).
+- [PROGRAM](/devhub/guides/messages/object-types/programs.md): create and update programs running in VMs (ex: lambda functions).
+- [STORE](/devhub/guides/messages/object-types/storage.md)
 
 ## Using Messages
 
@@ -50,7 +31,7 @@ Messages can be created and sent using:
 
 - [Python SDK](/devhub/sdks/python/)
 - [TypeScript SDK](/devhub/sdks/typescript/)
-- [Aleph Client CLI](/tools/aleph-client/)
+- [Aleph Client CLI](/tools/aleph-cli/)
 - [Web Console](/tools/webconsole/)
 
 ## Example Message Flow

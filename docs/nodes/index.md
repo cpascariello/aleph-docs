@@ -6,7 +6,7 @@ Welcome to the Aleph Cloud Nodes documentation. This section provides comprehens
 
 Aleph Cloud's decentralized infrastructure is maintained by two primary types of nodes:
 
-### [Core Channel Nodes](/nodes/core/introduction/)
+### Core Channel Nodes
 
 Core Channel Nodes are the backbone of the Aleph Cloud network. They:
 - Process and validate transactions
@@ -14,9 +14,12 @@ Core Channel Nodes are the backbone of the Aleph Cloud network. They:
 - Store and distribute messages
 - Coordinate network activities
 
-[Learn more about Core Channel Nodes →](/nodes/core/introduction/)
+<ActionButtons>
+  <ActionButton theme="alt" text="Learn more →" link="/nodes/core/introduction/" />
+  <ActionButton theme="brand" text="Start staking →" link="/nodes/staking/" />
+</ActionButtons>
 
-### [Compute Resource Nodes](/nodes/compute/introduction/)
+### Compute Resource Nodes
 
 Compute Resource Nodes (CRNs) provide the computational power for the network. They:
 - Execute virtual machines and containers
@@ -24,25 +27,14 @@ Compute Resource Nodes (CRNs) provide the computational power for the network. T
 - Support confidential computing with AMD SEV
 - Provide decentralized computing resources
 
-[Learn more about Compute Resource Nodes →](/nodes/compute/introduction/)
-
-## Node Resources
-
-Running a node on the Aleph Cloud network requires understanding various aspects of node operation:
-
-- [Node Monitoring](/nodes/resources/monitoring/) - Tools and practices for monitoring node health
-- [Troubleshooting](/nodes/resources/troubleshooting/) - Common issues and their solutions
-
-## Getting Started
-
-If you're interested in running a node, we recommend starting with:
-
-1. Understanding the [requirements](/nodes/compute/requirements/) for your chosen node type
-2. Following the [installation guides](/nodes/core/installation/) for setting up your node
-3. Configuring your node using our [configuration guides](/nodes/core/configuration/)
+<ActionButtons>
+  <ActionButton theme="alt" text="Learn more →" link="/nodes/compute/introduction/" :style="{
+      marginBottom: '2rem'
+    }" />
+</ActionButtons>
 
 ## Node Rewards
 
 Node operators are rewarded for their contributions to the network. The reward structure varies by node type and is designed to incentivize reliable operation and network growth.
 
-For more information about the economic model and rewards, please visit the [Aleph.im website](https://aleph.im).
+For more information about the economic model and rewards, please visit the [Aleph.im website](https://aleph.im/infrastructure/).

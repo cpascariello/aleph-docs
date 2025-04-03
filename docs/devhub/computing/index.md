@@ -108,7 +108,7 @@ To start using Aleph Cloud's computing capabilities:
 
 Aleph Cloud provides several tools to help you work with our computing platform:
 
-- [Aleph Cloud Client](/tools/aleph-client/) - Command-line tool for managing computing resources
+- [Aleph Cloud Client](/tools/aleph-cli/) - Command-line tool for managing computing resources
 - [Web Console](/tools/webconsole/) - Web interface for deploying and managing applications
 - [SDKs](/devhub/sdks/typescript/) - Libraries for programmatic access to Aleph Cloud services
 
