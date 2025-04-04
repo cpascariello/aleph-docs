@@ -1028,8 +1028,7 @@ If a session expires unexpectedly:
 
 ## Resources
 
-- [JavaScript SDK Documentation](/devhub/sdks/typescript/)
+- [Typescript SDK Documentation](/devhub/sdks/typescript/)
 - [Python SDK Documentation](/devhub/sdks/python/)
-- [API Reference](/devhub/api/rest/)
-- [GraphQL API Documentation](/devhub/api/graphql/)
+- [Aleph CLI Documentation](/tools/aleph-cli/)
 - [Example Projects](/devhub/examples/web3-apps/)

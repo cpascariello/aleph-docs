@@ -19,7 +19,7 @@ aleph instance list
 
 In a properly functioning VM, you should see disk unlocking, boot logs, and the system invite. The last lines should look similar to:
 
-```
+```bash
 cloud-init[502]: Cloud-init v. 24.1.3-0ubuntu1~22.04.5 finished at Thu, 05 Sep 2024 19:36:07 +0000. Datasource DataSourceNoCloud [seed=/dev/sr0][dsmode=net].  Up 23.63 seconds
 [  OK  ] Finished Execute cloud user/final scripts.
 [  OK  ] Reached target Cloud-init target.

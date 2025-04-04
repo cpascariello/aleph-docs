@@ -74,7 +74,7 @@ GET /messages/{hash}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| hash | string | The hash of the message to retrieve |
+| `hash` | string | The hash of the message to retrieve |
 
 #### Response
 
@@ -113,14 +113,14 @@ GET /messages
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| hashes | string | Comma-separated list of message hashes |
-| addresses | string | Comma-separated list of sender addresses |
-| channels | string | Comma-separated list of channels |
-| tags | string | Comma-separated list of tags |
-| types | string | Comma-separated list of message types (STORE, POST, AGGREGATE, etc.) |
-| content.keys | string | Filter by content keys (JSON path) |
-| page | integer | Page number for pagination |
-| limit | integer | Number of results per page (default: 20, max: 100) |
+| `hashes` | string | Comma-separated list of message hashes |
+| `addresses` | string | Comma-separated list of sender addresses |
+| `channels` | string | Comma-separated list of channels |
+| `tags` | string | Comma-separated list of tags |
+| `types` | string | Comma-separated list of message types (STORE, POST, AGGREGATE, etc.) |
+| `content.keys` | string | Filter by content keys (JSON path) |
+| `page` | integer | Page number for pagination |
+| `limit` | integer | Number of results per page (default: 20, max: 100) |
 
 #### Response
 
@@ -212,11 +212,11 @@ Use `multipart/form-data` to upload the file:
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| file | file | The file to upload |
-| address | string | Your address |
-| signature | string | Signature of the file hash |
-| channel | string | Channel (default: "ALEPH") |
-| tags | string | Comma-separated list of tags |
+| `file` | file | The file to upload |
+| `address` | string | Your address |
+| `signature` | string | Signature of the file hash |
+| `channel` | string | Channel (default: "ALEPH") |
+| `tags` | string | Comma-separated list of tags |
 
 #### Response
 
@@ -239,7 +239,7 @@ GET /storage/{hash}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| hash | string | The hash of the file to retrieve |
+| `hash` | string | The hash of the file to retrieve |
 
 #### Response
 
@@ -261,8 +261,8 @@ GET /aggregates/{address}/{key}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| address | string | The address of the aggregate owner |
-| key | string | The key of the aggregate |
+| `address` | string | The address of the aggregate owner |
+| `key` | string | The key of the aggregate |
 
 #### Response
 
@@ -291,12 +291,12 @@ GET /aggregates
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| address | string | Filter by owner address |
-| key | string | Filter by key |
-| keys | string | Comma-separated list of keys |
-| content.fields | string | Filter by content fields (JSON path) |
-| page | integer | Page number for pagination |
-| limit | integer | Number of results per page (default: 20, max: 100) |
+| `address` | string | Filter by owner address |
+| `key` | string | Filter by key |
+| `keys` | string | Comma-separated list of keys |
+| `content.fields` | string | Filter by content fields (JSON path) |
+| `page` | integer | Page number for pagination |
+| `limit` | integer | Number of results per page (default: 20, max: 100) |
 
 #### Response
 
@@ -420,7 +420,7 @@ POST /run/{program_hash}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| program_hash | string | The hash of the program to execute |
+| `program_hash | string | The hash of the program to execute |
 
 #### Request Body
 
@@ -505,7 +505,7 @@ GET /instances/{instance_id}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| instance_id | string | The ID of the instance to retrieve |
+| `instance_id | string | The ID of the instance to retrieve |
 
 #### Response
 
@@ -538,10 +538,10 @@ GET /instances
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| address | string | Filter by owner address |
-| status | string | Filter by status (running, stopped, etc.) |
-| page | integer | Page number for pagination |
-| limit | integer | Number of results per page (default: 20, max: 100) |
+| `address` | string | Filter by owner address |
+| `status` | string | Filter by status (running, stopped, etc.) |
+| `page` | integer | Page number for pagination |
+| `limit` | integer | Number of results per page (default: 20, max: 100) |
 
 #### Response
 
@@ -585,7 +585,7 @@ PUT /instances/{instance_id}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| instance_id | string | The ID of the instance to update |
+| `instance_id` | string | The ID of the instance to update |
 
 #### Request Body
 
@@ -631,7 +631,7 @@ POST /instances/{instance_id}/control
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| instance_id | string | The ID of the instance to control |
+| `instance_id` | string | The ID of the instance to control |
 
 #### Request Body
 
@@ -712,7 +712,7 @@ GET /ipfs/{hash}
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| hash | string | The IPFS hash of the content to retrieve |
+| `hash` | string | The IPFS hash of the content to retrieve |
 
 #### Response
 
@@ -734,16 +734,16 @@ GET /indexer/{network}/events
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| network | string | The blockchain network (ethereum, polygon, etc.) |
-| contract | string | Filter by contract address |
-| event_name | string | Filter by event name |
-| from_block | integer | Filter from block number |
-| to_block | integer | Filter to block number |
-| from_timestamp | integer | Filter from timestamp |
-| to_timestamp | integer | Filter to timestamp |
-| args | object | Filter by event arguments |
-| page | integer | Page number for pagination |
-| limit | integer | Number of results per page (default: 20, max: 100) |
+| `network` | string | The blockchain network (ethereum, polygon, etc.) |
+| `contract` | string | Filter by contract address |
+| `event_name` | string | Filter by event name |
+| `from_block` | integer | Filter from block number |
+| `to_block` | integer | Filter to block number |
+| `from_timestamp` | integer | Filter from timestamp |
+| `to_timestamp` | integer | Filter to timestamp |
+| `args` | object | Filter by event arguments |
+| `page` | integer | Page number for pagination |
+| `limit` | integer | Number of results per page (default: 20, max: 100) |
 
 #### Response
 
@@ -786,16 +786,16 @@ GET /indexer/{network}/transactions
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| network | string | The blockchain network (ethereum, polygon, etc.) |
-| address | string | Filter by address (sender or receiver) |
-| from | string | Filter by sender address |
-| to | string | Filter by receiver address |
-| from_block | integer | Filter from block number |
-| to_block | integer | Filter to block number |
-| from_timestamp | integer | Filter from timestamp |
-| to_timestamp | integer | Filter to timestamp |
-| page | integer | Page number for pagination |
-| limit | integer | Number of results per page (default: 20, max: 100) |
+| `network` | string | The blockchain network (ethereum, polygon, etc.) |
+| `address` | string | Filter by address (sender or receiver) |
+| `from` | string | Filter by sender address |
+| `to` | string | Filter by receiver address |
+| `from_block` | integer | Filter from block number |
+| `to_block` | integer | Filter to block number |
+| `from_timestamp` | integer | Filter from timestamp |
+| `to_timestamp` | integer | Filter to timestamp |
+| `page` | integer | Page number for pagination |
+| `limit` | integer | Number of results per page (default: 20, max: 100) |
 
 #### Response
 
@@ -888,13 +888,13 @@ POST /vrf/verify
 
 All API endpoints return standard HTTP status codes:
 
-- 200: Success
-- 400: Bad Request (invalid parameters)
-- 401: Unauthorized (authentication required)
-- 403: Forbidden (insufficient permissions)
-- 404: Not Found (resource not found)
-- 429: Too Many Requests (rate limit exceeded)
-- 500: Internal Server Error
+- *200*: Success
+- *400*: Bad Request (invalid parameters)
+- *401*: Unauthorized (authentication required)
+- *403*: Forbidden (insufficient permissions)
+- *404*: Not Found (resource not found)
+- *429*: Too Many Requests (rate limit exceeded)
+- *500*: Internal Server Error
 
 Error responses include a JSON body with details:
 
@@ -959,6 +959,6 @@ POST /webhooks
 
 For easier integration, consider using one of the official SDKs:
 
-- [JavaScript/TypeScript SDK](/devhub/sdks/typescript/)
+- [TypeScript SDK](/devhub/sdks/typescript/)
 - [Python SDK](/devhub/sdks/python/)
 - [Other Languages](/devhub/sdks/other-languages/)

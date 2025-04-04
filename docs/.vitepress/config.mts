@@ -153,23 +153,15 @@ export default defineConfig({
       ],
       
 
-      
       // Tools section sidebar
       '/tools/': [
         {
-          text: 'Tools',
+          text: 'Tooling',
           items: [
             { text: 'Aleph Cloud CLI', link: '/tools/aleph-cli/' },
             { text: 'Web Console', link: '/tools/webconsole/' },
             { text: 'IPFS Pinning', link: '/tools/ipfs-pinning/' },
             { text: 'VRF', link: '/tools/vrf/' },
-            {
-              text: 'Indexer',
-              collapsed: true,
-              items: [
-                { text: 'EVM Indexer', link: '/tools/indexer/evm-indexer/' }
-              ]
-            },
             { text: 'Web3 Hosting', link: '/tools/web3-hosting/' }
           ]
         }
@@ -193,7 +185,7 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Computing',
+          text: 'Functions & Instances',
           collapsed: false,
           items: [
             { text: 'Overview', link: '/devhub/computing/' },
@@ -205,12 +197,19 @@ export default defineConfig({
                 { text: 'Advanced',
                   collapsed: true,
                   items: [
-                    { text: 'Test Programs', link: '/devhub/computing/functions/advanced/test-programs' },
-                    { text: 'Update Programs', link: '/devhub/computing/functions/advanced/update-programs' },
+                    { text: 'Test Functions', link: '/devhub/computing/functions/advanced/test-programs' },
+                    { text: 'Update Functions', link: '/devhub/computing/functions/advanced/update-programs' },
                     { text: 'Custom Builds', 
                       collapsed: true,
                       items: [
-                        { text: 'Python', link: '/devhub/computing/functions/advanced/custom-builds/python' },
+                        { text: 'Python', 
+                          collapsed: true,
+                          items: [
+                            { text: 'Getting Started', link: '/devhub/computing/functions/advanced/custom-builds/python/getting-started/' },
+                            { text: 'Advanced Features', link: '/devhub/computing/functions/advanced/custom-builds/python/advanced/features' },
+                            { text: 'Dependency Volumes', link: '/devhub/computing/functions/advanced/custom-builds/python/advanced/dependency-volumes' }
+                          ]
+                        },
                         { text: 'Rust', link: '/devhub/computing/functions/advanced/custom-builds/rust' }
                       ]
                     }
@@ -219,19 +218,19 @@ export default defineConfig({
               ]
             },
             { text: 'Instances (VMs)',
-              collapsed: true,
+              collapsed: false,
               items: [
-                { text: 'General Instances', link:'/devhub/computing/instances'},
-                { text: 'GPU Instances', link:'/devhub/computing/gpu'},
+                { text: 'General Instances', link:'/devhub/computing/instances/general-instances'},
+                { text: 'GPU Instances', link:'/devhub/computing/instances/gpu-instances'},
                 {
                   text: 'Confidential Instances',
                   collapsed: true,
                   items: [
-                    { text: 'Overview', link: '/devhub/computing/confidential/' },
-                    { text: 'Requirements', link: '/devhub/computing/confidential/requirements' },
-                    { text: 'Encrypted Disk Image', link: '/devhub/computing/confidential/encrypted-disk' },
-                    { text: 'Instance Creation', link: '/devhub/computing/confidential/instance' },
-                    { text: 'Troubleshooting', link: '/devhub/computing/confidential/troubleshooting' }
+                    { text: 'Overview', link: '/devhub/computing/instances/confidential/01-confidential-instance-introduction' },
+                    { text: 'Requirements', link: '/devhub/computing/instances/confidential/02-confidential-instance-requirements' },
+                    { text: 'Encrypted Disk Image', link: '/devhub/computing/instances/confidential/03-confidential-instance-create-encrypted-disk' },
+                    { text: 'Instance Creation', link: '/devhub/computing/instances/confidential/04-confidential-instance-deploy' },
+                    { text: 'Troubleshooting', link: '/devhub/computing/instances/confidential/05-confidential-instance-troubleshooting' }
                   ]
                 },
               ]
@@ -239,12 +238,10 @@ export default defineConfig({
             { text: 'Runtimes',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/devhub/guides/runtimes/' },
-                { text: 'Custom Runtimes', link: '/devhub/guides/runtimes/custom' },
+                { text: 'Overview', link: '/devhub/computing/runtimes/overview' },
+                { text: 'Custom Runtimes', link: '/devhub/computing/runtimes/create-custom-runtimes' },
               ]
-            },
-            { text: 'On-demand Execution', link: '/devhub/computing/on-demand/' },
-            { text: 'Persistent Execution', link: '/devhub/computing/persistent/' },
+            }
           ]
         },
         {
@@ -255,22 +252,36 @@ export default defineConfig({
               collapsed: false,
               items:[
                 { text: 'Overview', link: '/devhub/guides/messages/' },
-                { text: 'Aggregates', link: '/devhub/guides/messages/object-types/aggregates/' },
-                { text: 'Posts', link: '/devhub/guides/messages/object-types/posts/'},
-                {text: 'Store', link: '/devhub/guides/messages/object-types/store/'},
-                {text: 'Programs', link: '/devhub/guides/messages/object-types/programs/'}
+                { text: 'Aggregates', link: '/devhub/guides/messages/object-types/aggregates' },
+                { text: 'Posts', link: '/devhub/guides/messages/object-types/posts' },
+                { text: 'Store', link: '/devhub/guides/messages/object-types/store' },
+                { text: 'Programs', link: '/devhub/guides/messages/object-types/programs' }
               ]
             },
             { text: 'Storage', 
               collapsed: false,
               items: [
-                { text: 'Overview', link: '/devhub/guides/storage/' },
-                { text: 'Immutable Volume', link: '/devhub/guides/storage/immutable-volume' },
-                { text: 'Persistent Storage', link: '/devhub/guides/storage/persistent-storage' }
+                { text: 'Overview', link: '/devhub/guides/storage/overview' },
+                { text: 'Getting Started', link: '/devhub/guides/storage/getting-started' },
+                { text: 'Types of Storage',
+                  collapsed: true,
+                  items: [
+                    { text: 'Immutable Volume', link: '/devhub/guides/storage/types-of-storage/immutable-volume' },
+                    { text: 'Persistent Storage', link: '/devhub/guides/storage/types-of-storage/persistent-storage' }
+                  ]
+                }
               ]
             },
-            { text: 'Custom Domains', link: '/devhub/guides/custom-domains/' },
-            { text: 'Indexing', link: '/devhub/guides/indexing/' },
+            { text: 'Custom Domains', link: '/devhub/guides/custom-domains/setup' },
+            {
+              text: 'Indexer',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/devhub/guides/indexing/' },
+                { text: 'Solana IDL Indexer', link: '/devhub/guides/indexing/solana-idl-indexer' },
+                { text: 'EVM Indexer', link: '/devhub/guides/indexing/evm-indexer' }
+              ]
+            },
             { text: 'Authentication', link: '/devhub/guides/authentication/' }
           ]
         },
@@ -278,8 +289,7 @@ export default defineConfig({
           text: 'API Reference',
           collapsed: true,
           items: [
-            { text: 'REST API', link: '/devhub/api/rest/' },
-            { text: 'GraphQL API', link: '/devhub/api/graphql/' }
+            { text: 'REST API', link: '/devhub/api/rest' }
           ]
         },
         {

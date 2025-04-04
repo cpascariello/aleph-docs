@@ -1,43 +1,12 @@
-# Storage Guide
+# Getting Started
 
-Aleph Cloud provides a decentralized storage solution that enables developers to store various types of data with persistence, redundancy, and censorship resistance. This guide explains how to use Aleph Cloud's storage capabilities for different use cases.
-
-## Overview
-
-Aleph Cloud's storage system offers several key features:
-
-- **Persistence**: Data is stored permanently on the network
-- **Redundancy**: Data is replicated across multiple nodes for reliability
-- **Censorship Resistance**: No single entity can remove or modify your data
-- **Flexible Data Types**: Support for messages, files, aggregates, and more
-- **IPFS Integration**: All content is accessible via IPFS as well as HTTP
-- **Cross-Chain Authentication**: Sign data with various blockchain accounts
-
-## Storage Types
-
-Aleph Cloud provides several storage types for different use cases:
-
-### Messages
-
-Messages are the most basic storage unit on Aleph Cloud. They can contain any JSON-serializable data and are immutable once created.
-
-### Files
-
-Files can be any binary data, such as images, videos, documents, etc. They are stored efficiently and can be retrieved via HTTP or IPFS.
-
-### Aggregates
-
-Aggregates are similar to documents in a database. They can be updated over time while maintaining a history of changes.
-
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 - An Aleph Cloud account (can be created through wallet authentication)
 - The Aleph Cloud SDK for your preferred language
 - Basic knowledge of blockchain concepts (for authentication)
 
-### Installation
+## Installation
 
 ::: code-group
 
@@ -50,9 +19,9 @@ pip install aleph-client
 ```
 :::
 
-## Storing Data
+# Storing Data
 
-### Storing Messages
+## Storing Messages
 
 Messages are the most basic form of storage on Aleph Cloud. They are immutable and can contain any JSON-serializable data.
 
@@ -120,7 +89,7 @@ print(f"Stored JSON with hash: {json_result['item_hash']}")
 ```
 :::
 
-### Storing Files
+## Storing Files
 
 Files can be any binary data, such as images, videos, documents, etc.
 
@@ -169,7 +138,7 @@ print(f"File stored with hash: {file_result['item_hash']}")
 ```
 :::
 
-### Working with Aggregates
+## Working with Aggregates
 
 Aggregates are similar to documents in a database. They can be updated over time while maintaining a history of changes.
 
@@ -238,9 +207,9 @@ for user in users:
 ```
 :::
 
-## Retrieving Data
+# Retrieving Data
 
-### Retrieving Messages
+## Retrieving Messages
 
 ::: code-group
 
@@ -276,7 +245,7 @@ for msg in messages:
 ```
 :::
 
-### Retrieving Files
+## Retrieving Files
 
 ::: code-group
 
@@ -312,9 +281,9 @@ with open('downloaded_file', 'wb') as f:
 ```
 :::
 
-## Advanced Usage
+# Advanced Usage
 
-### Storage with Encryption
+## Storage with Encryption
 
 You can encrypt your data before storing it on Aleph Cloud for additional privacy.
 
@@ -406,7 +375,7 @@ print(f"Decrypted content: {decrypted_content}")
 ```
 :::
 
-### IPFS Integration
+## IPFS Integration
 
 All content stored on Aleph Cloud is also accessible via IPFS.
 
@@ -436,7 +405,7 @@ content = await client.ipfs_get('QmExistingIPFSHash')
 ```
 :::
 
-### Storage with Metadata
+## Storage with Metadata
 
 You can include metadata with your stored content to make it more discoverable and organized.
 
@@ -509,9 +478,9 @@ for doc in documents:
 ```
 :::
 
-## Use Cases
+# Use Cases
 
-### NFT Metadata Storage
+## NFT Metadata Storage
 
 Store metadata for NFTs in a decentralized and permanent way.
 
@@ -542,7 +511,7 @@ console.log(`Metadata URL: https://api2.aleph.cloud/api/v0/messages/${result.ite
 ```
 :::
 
-### User Profile System
+## User Profile System
 
 Create a user profile system with updatable profiles.
 
@@ -602,7 +571,7 @@ profiles.forEach(profile => {
 ```
 :::
 
-### Decentralized Content Management
+## Decentralized Content Management
 
 Create a decentralized blog or content management system.
 
@@ -651,31 +620,31 @@ taggedPosts.forEach(post => {
 ```
 :::
 
-## Best Practices
+# Best Practices
 
-### Efficient Data Organization
+## Efficient Data Organization
 
 - **Use Tags**: Always add relevant tags to your content for better discoverability
 - **Use Aggregates for Related Data**: Group related data using aggregates with consistent keys
 - **Use Namespaces**: Prefix your aggregate types and keys with a namespace to avoid conflicts
 
-### Performance Optimization
+## Performance Optimization
 
 - **Limit Query Results**: Always specify a reasonable limit for queries
 - **Use Specific Queries**: Make your queries as specific as possible to reduce data transfer
 - **Batch Operations**: Group multiple operations together when possible
 
-### Security Considerations
+## Security Considerations
 
 - **Encrypt Sensitive Data**: Use encryption for any sensitive information
 - **Validate User Input**: Always validate user input before storing it
 - **Use Secure Authentication**: Ensure your private keys are stored securely
 
-## Troubleshooting
+# Troubleshooting
 
-### Common Issues
+## Common Issues
 
-#### Message Not Found
+### Message Not Found
 
 If you're trying to retrieve a message that doesn't exist, you'll get a "Message not found" error.
 
@@ -688,7 +657,7 @@ try {
 }
 ```
 
-#### Rate Limiting
+### Rate Limiting
 
 If you're making too many requests in a short period, you might encounter rate limiting.
 
@@ -705,7 +674,7 @@ try {
 }
 ```
 
-#### Large File Uploads
+### Large File Uploads
 
 When uploading large files, you might encounter timeout issues. Consider splitting large files into smaller chunks.
 
@@ -752,9 +721,9 @@ async function uploadLargeFile(file, account) {
 }
 ```
 
-## Resources
+# Resources
 
-- [JavaScript SDK Documentation](/devhub/sdks/typescript/)
+- [TypeScript SDK Documentation](/devhub/sdks/typescript/)
 - [Python SDK Documentation](/devhub/sdks/python/)
 - [API Reference](/devhub/api/rest/)
 - [Example Projects](/devhub/examples/web3-apps/)

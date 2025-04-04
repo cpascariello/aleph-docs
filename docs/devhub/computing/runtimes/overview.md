@@ -9,10 +9,10 @@ The project provides official runtimes with all you need for most programs and i
 
 Additionally, you can build and publish custom runtimes, and use any available runtime on the network for your program.
 
-- [Use existing runtimes](#existing-runtimes)
-- [Create custom runtimes](./custom.md)
+- [Use existing runtimes](#use-existing-runtimes)
+- [Create custom runtimes](./create-custom-runtimes.md)
 
-## Existing Runtimes
+## Use Existing Runtimes {#use-existing-runtimes}
 ### Official runtimes
 
 Aleph.im provides users with a default runtime based on [Debian 12 "bookworkm"](https://wiki.debian.org/DebianBookworm),

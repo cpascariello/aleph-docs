@@ -1,41 +1,57 @@
-# Enabling GPU support
+# Enabling GPU Support
 
-This guide outlines how to enable GPU support on your CRN, as to allow user do deploy Instance with GPUs.
+This guide explains how to enable GPU support on your Compute Resource Node (CRN), allowing users to deploy instances with GPU capabilities. The process involves two main aspects:
+1. Understanding the available GPU options and pricing
+2. Configuring your CRN for GPU support
 
-Enabling GPU support for Virtualization requires changing which Kernel module (driver) is handling the GPU card, as it need the special `vfio` module to works with qemu. Do note that it will make the GPU unavailable for other purposes.
+::: warning Prerequisites
+Before enabling GPU support:
+- Enable PAYG support and IPv6 on your CRN (this is required for GPU billing)
+- Follow the steps at [Enable PAYG](/nodes/compute/advanced/pay-as-you-go/)
+:::
 
-To activate this feature it is also required to enable PAYG support and IPv6 on your CRN, as this is the required payment method for GPU. Follow the steps at [Enable PAYG](#enable-kernel-modules-for-gpu)
+## Available GPUs and Pricing
 
-## Device compatible with the feature
-
-At the time of writing the GPUs listed below are compatible with the feature, more will be added soon as they are tested and validated.
+The following GPUs are currently compatible with Aleph Cloud. More options will be added as they are tested and validated.
 
 ### Standard GPUs
 
+Consumer and workstation-grade GPUs suitable for most workloads:
+
 | GPU Model    | vCPU | RAM   | vRAM  | Price approx    |
-|--------------|------|-------|-------|-----------------|
+|--------------|------|-------|-------|------------------|
 | L40S         | 12   | 72 GB | 48 GB | 3.33 ALEPH/hour |
 | RTX 5090     | 8    | 48 GB | 36 GB | 2.24 ALEPH/hour |
 | RTX 4090     | 6    | 36 GB | 24 GB | 1.68 ALEPH/hour |
 | RTX 3090     | 4    | 24 GB | 24 GB | 1.12 ALEPH/hour |
 | RTX 4000 ADA | 3    | 18 GB | 20 GB | 0.84 ALEPH/hour |
 
-GPUs must be connected via PCIe 4.0 16x each.
+### Premium GPUs
 
-## Premium GPUs
-
-
-Datacenter grade GPUs.
+Datacenter-grade GPUs optimized for high-performance computing:
 
 | GPU Model | vCPU | RAM    | vRAM  | Price approx     |
 |-----------|------|--------|-------|------------------|
 | H100      | 24   | 144 GB | 80 GB | 13.33 ALEPH/hour |
 | A100      | 16   | 96 GB  | 80 GB | 8.89  ALEPH/hour |
 
-## Enable Kernel modules for GPU {#enable-kernel-modules-for-gpu}
-It is possible to enable multiple GPUs on one CRN
+::: info Hardware Requirements
+All GPUs must be connected via PCIe 4.0 16x each for optimal performance.
+:::
 
-Execute these command as root, use `sudo` on Ubuntu system. 
+## GPU Configuration Guide {#gpu-configuration}
+
+### Enabling Kernel Modules
+
+::: tip
+It is possible to enable multiple GPUs on one CRN. The following steps will help you configure the required kernel modules.
+:::
+
+### Configuration Steps
+
+::: warning
+Execute these commands as root. On Ubuntu systems, use `sudo`.
+:::
 
 1. Edit initramfs to attach GPU to vfio:
    `vi /etc/initramfs-tools/modules` and set the content to 

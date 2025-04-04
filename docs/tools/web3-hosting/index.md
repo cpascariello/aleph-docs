@@ -288,5 +288,5 @@ aleph website deploy ./out --name "My Next.js Site"
 ## Next Steps
 
 - [IPFS Pinning](/tools/ipfs-pinning/) - Learn more about IPFS pinning on Aleph.im
-- [Computing](/devhub/computing/) - Explore Aleph.im's computing capabilities for dynamic backends
+- [Functions & Instances](/devhub/computing/) - Explore Aleph.im's computing capabilities for dynamic backends
 - [Storage Guide](/devhub/guides/storage/) - Learn about Aleph.im's storage capabilities
