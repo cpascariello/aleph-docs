@@ -162,7 +162,8 @@ export default defineConfig({
             { text: 'Web Console', link: '/tools/webconsole/' },
             { text: 'IPFS Pinning', link: '/tools/ipfs-pinning/' },
             { text: 'VRF', link: '/tools/vrf/' },
-            { text: 'Web3 Hosting', link: '/tools/web3-hosting/' }
+            { text: 'Web3 Hosting', link: '/tools/web3-hosting/' },
+            { text: 'FAQ', link: '/tools/faq' }
           ]
         }
       ],
