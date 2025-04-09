@@ -19,8 +19,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about' },
       { text: 'Nodes', link: '/nodes' },
-      { text: 'DevHub', link: '/devhub' },
-      { text: 'Tools', link: '/tools' }
+      { text: 'DevHub', link: '/devhub' }
     ],
     
     search: {
@@ -66,7 +65,7 @@ export default defineConfig({
       // About section sidebar (previous "What is Aleph.im?")
       '/about/': [
         {
-          text: 'About Aleph.im',
+          text: 'About Aleph Cloud',
           items: [
             { text: 'Overview', link: '/about/' },
             { text: 'How it Works', link: '/about/how-it-works/' },
@@ -151,22 +150,7 @@ export default defineConfig({
           ]
         }
       ],
-      
 
-      // Tools section sidebar
-      '/tools/': [
-        {
-          text: 'Tooling',
-          items: [
-            { text: 'Aleph Cloud CLI', link: '/tools/aleph-cli/' },
-            { text: 'Web Console', link: '/tools/webconsole/' },
-            { text: 'IPFS Pinning', link: '/tools/ipfs-pinning/' },
-            { text: 'VRF', link: '/tools/vrf/' },
-            { text: 'Web3 Hosting', link: '/tools/web3-hosting/' },
-            { text: 'FAQ', link: '/tools/faq' }
-          ]
-        }
-      ],
       
       // DevHub section sidebar (previous "Development Hub")
       '/devhub/': [
@@ -174,16 +158,133 @@ export default defineConfig({
           text: 'Developer Hub',
           items: [
             { text: 'Overview', link: '/devhub/' },
-            { text: 'Getting Started', link: '/devhub/getting-started/' }
+            { text: 'Getting Started', link: '/devhub/getting-started/' },
+            { text: 'FAQ', link: '/devhub/faq/' }
+          ]
+        },
+        {
+          text: 'Building Applications',
+          collapsed: false,
+          items: [
+            { text: 'Authentication', link: '/devhub/building-applications/authentication/' },
+            { text: 'Data Storage', 
+              collapsed: false,
+              items: [
+                { text: 'Overview', link: '/devhub/building-applications/data-storage/overview' },
+                { text: 'Getting Started', link: '/devhub/building-applications/data-storage/getting-started' },
+                { text: 'Types of Storage',
+                  collapsed: true,
+                  items: [
+                    { text: 'Immutable Volume', link: '/devhub/building-applications/data-storage/types-of-storage/immutable-volume' },
+                    { text: 'Persistent Storage', link: '/devhub/building-applications/data-storage/types-of-storage/persistent-storage' }
+                  ]
+                },
+                { text: 'IPFS Pinning', link: '/devhub/storage/ipfs-pinning/' }
+              ]
+            },
+            { text: 'Messaging', 
+              collapsed: false,
+              items:[
+                { text: 'Overview', link: '/devhub/building-applications/messaging/' },
+                { text: 'Permissions', link: '/devhub/building-applications/messaging/permissions' },
+                { text: 'Object Types',
+                  collapsed: true,
+                  items: [
+                    { text: 'Aggregates', link: '/devhub/building-applications/messaging/object-types/aggregates' },
+                    { text: 'Posts', link: '/devhub/building-applications/messaging/object-types/posts' },
+                    { text: 'Store', link: '/devhub/building-applications/messaging/object-types/store' },
+                    { text: 'Programs', link: '/devhub/building-applications/messaging/object-types/programs' },
+                    { text: 'Forget', link: '/devhub/building-applications/messaging/object-types/forget' }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Compute Resources',
+          collapsed: false,
+          items: [
+            { text: 'Standard Instances', link: '/devhub/compute-resources/standard-instances/' },
+            { text: 'GPU Instances', link: '/devhub/compute-resources/gpu-instances/' },
+            {
+              text: 'Confidential Instances',
+              collapsed: true,
+              items: [
+                { text: 'Introduction', link: '/devhub/compute-resources/confidential-instances/01-confidential-instance-introduction' },
+                { text: 'Requirements', link: '/devhub/compute-resources/confidential-instances/02-confidential-instance-requirements' },
+                { text: 'Encrypted Disk Image', link: '/devhub/compute-resources/confidential-instances/03-confidential-instance-create-encrypted-disk' },
+                { text: 'Instance Creation', link: '/devhub/compute-resources/confidential-instances/04-confidential-instance-deploy' },
+                { text: 'Troubleshooting', link: '/devhub/compute-resources/confidential-instances/05-confidential-instance-troubleshooting' }
+              ]
+            },
+            { text: 'Functions', 
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/devhub/compute-resources/functions/' },
+                { text: 'Getting Started', link: '/devhub/compute-resources/functions/getting-started' },
+                { text: 'Advanced', 
+                  collapsed: true,
+                  items: [
+                    { text: 'Test Functions', link: '/devhub/compute-resources/functions/advanced/test-programs' },
+                    { text: 'Update Functions', link: '/devhub/compute-resources/functions/advanced/update-programs' },
+                    { text: 'Custom Builds',
+                      collapsed: true,
+                      items: [
+                        { text: 'Python',
+                          collapsed: true,
+                          items: [
+                            { text: 'Getting Started', link: '/devhub/compute-resources/functions/advanced/custom-builds/python/getting-started/' },
+                            { text: 'Advanced Features', link: '/devhub/compute-resources/functions/advanced/custom-builds/python/advanced/features' },
+                            { text: 'Dependency Volumes', link: '/devhub/compute-resources/functions/advanced/custom-builds/python/advanced/dependency-volumes' }
+                          ]
+                        },
+                        { text: 'Rust', link: '/devhub/compute-resources/functions/advanced/custom-builds/rust' }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { text: 'Payment Models',
+              collapsed: true,
+              items: [
+                { text: 'Holding', link: '/devhub/compute-resources/payment-models/holding/' },
+                { text: 'Pay-As-You-Go', link: '/devhub/compute-resources/payment-models/pay-as-you-go/' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Deploying & Hosting',
+          collapsed: false,
+          items: [
+            { text: 'Custom Domains', link: '/devhub/deploying-and-hosting/custom-domains/setup' },
+            { text: 'Web Hosting', link: '/devhub/deploying-and-hosting/web-hosting/' }
+          ]
+        },
+        {
+          text: 'Working with Blockchain Data',
+          collapsed: false,
+          items: [
+            { text: 'Indexing',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/devhub/building-applications/blockchain-data/indexing/' },
+                { text: 'EVM Indexer', link: '/devhub/building-applications/blockchain-data/indexing/evm-indexer' },
+                { text: 'Solana IDL Indexer', link: '/devhub/building-applications/blockchain-data/indexing/solana-idl-indexer' }
+              ]
+            }
           ]
         },
         {
           text: 'SDKs & Tools',
+          collapsed: false,
           items: [
-            { text: 'TypeScript', link: '/devhub/sdks-and-tools/typescript/' },
-            { text: 'Python', link: '/devhub/sdks-and-tools/python/' },
+            { text: 'TypeScript SDK', link: '/devhub/sdks-and-tools/typescript-sdk/' },
+            { text: 'Python SDK', link: '/devhub/sdks-and-tools/python-sdk/' },
             { 
-              text: 'Aleph Cloud CLI', 
+              text: 'Aleph CLI', 
               link: '/devhub/sdks-and-tools/aleph-cli/',
               collapsed: false,
               items: [
@@ -192,125 +293,25 @@ export default defineConfig({
                 { text: 'Function Deployment', link: '/devhub/sdks-and-tools/aleph-cli/commands/program' },
                 { text: 'Instance Management', link: '/devhub/sdks-and-tools/aleph-cli/commands/instance' }
               ]
-            }
-          ]
-        },
-        {
-          text: 'Functions & Instances',
-          collapsed: false,
-          items: [
-            { text: 'Overview', link: '/devhub/computing/' },
-            { text: 'Functions (Programs)',
-              collapsed: true,
-              items: [
-                { text: 'Overview', link: '/devhub/computing/functions/' },
-                { text: 'Getting Started', link: '/devhub/computing/functions/getting-started' },
-                { text: 'Advanced',
-                  collapsed: true,
-                  items: [
-                    { text: 'Test Functions', link: '/devhub/computing/functions/advanced/test-programs' },
-                    { text: 'Update Functions', link: '/devhub/computing/functions/advanced/update-programs' },
-                    { text: 'Custom Builds', 
-                      collapsed: true,
-                      items: [
-                        { text: 'Python', 
-                          collapsed: true,
-                          items: [
-                            { text: 'Getting Started', link: '/devhub/computing/functions/advanced/custom-builds/python/getting-started/' },
-                            { text: 'Advanced Features', link: '/devhub/computing/functions/advanced/custom-builds/python/advanced/features' },
-                            { text: 'Dependency Volumes', link: '/devhub/computing/functions/advanced/custom-builds/python/advanced/dependency-volumes' }
-                          ]
-                        },
-                        { text: 'Rust', link: '/devhub/computing/functions/advanced/custom-builds/rust' }
-                      ]
-                    }
-                  ]
-                }
-              ]
             },
-            { text: 'Instances (VMs)',
-              collapsed: false,
-              items: [
-                { text: 'General Instances', link:'/devhub/computing/instances/general-instances'},
-                { text: 'GPU Instances', link:'/devhub/computing/instances/gpu-instances'},
-                {
-                  text: 'Confidential Instances',
-                  collapsed: true,
-                  items: [
-                    { text: 'Overview', link: '/devhub/computing/instances/confidential/01-confidential-instance-introduction' },
-                    { text: 'Requirements', link: '/devhub/computing/instances/confidential/02-confidential-instance-requirements' },
-                    { text: 'Encrypted Disk Image', link: '/devhub/computing/instances/confidential/03-confidential-instance-create-encrypted-disk' },
-                    { text: 'Instance Creation', link: '/devhub/computing/instances/confidential/04-confidential-instance-deploy' },
-                    { text: 'Troubleshooting', link: '/devhub/computing/instances/confidential/05-confidential-instance-troubleshooting' }
-                  ]
-                },
-              ]
-            },
-            { text: 'Runtimes',
-              collapsed: true,
-              items: [
-                { text: 'Overview', link: '/devhub/computing/runtimes/overview' },
-                { text: 'Custom Runtimes', link: '/devhub/computing/runtimes/create-custom-runtimes' },
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Guides',
-          collapsed: false,
-          items: [
-            { text: 'Messages', 
-              collapsed: false,
-              items:[
-                { text: 'Overview', link: '/devhub/guides/messages/' },
-                { text: 'Aggregates', link: '/devhub/guides/messages/object-types/aggregates' },
-                { text: 'Posts', link: '/devhub/guides/messages/object-types/posts' },
-                { text: 'Store', link: '/devhub/guides/messages/object-types/store' },
-                { text: 'Programs', link: '/devhub/guides/messages/object-types/programs' }
-              ]
-            },
-            { text: 'Storage', 
-              collapsed: false,
-              items: [
-                { text: 'Overview', link: '/devhub/guides/storage/overview' },
-                { text: 'Getting Started', link: '/devhub/guides/storage/getting-started' },
-                { text: 'Types of Storage',
-                  collapsed: true,
-                  items: [
-                    { text: 'Immutable Volume', link: '/devhub/guides/storage/types-of-storage/immutable-volume' },
-                    { text: 'Persistent Storage', link: '/devhub/guides/storage/types-of-storage/persistent-storage' }
-                  ]
-                }
-              ]
-            },
-            { text: 'Custom Domains', link: '/devhub/guides/custom-domains/setup' },
-            {
-              text: 'Indexer',
-              collapsed: true,
-              items: [
-                { text: 'Overview', link: '/devhub/guides/indexing/' },
-                { text: 'Solana IDL Indexer', link: '/devhub/guides/indexing/solana-idl-indexer' },
-                { text: 'EVM Indexer', link: '/devhub/guides/indexing/evm-indexer' }
-              ]
-            },
-            { text: 'Authentication', link: '/devhub/guides/authentication/' }
+            { text: 'VRF', link: '/devhub/tools/vrf/' }
           ]
         },
         {
           text: 'API Reference',
           collapsed: true,
           items: [
-            { text: 'REST API', link: '/devhub/api/rest' }
+            { text: 'REST API', link: '/devhub/api-reference/rest' }
           ]
         },
         {
-          text: 'Examples',
+          text: 'Example Projects',
           collapsed: true,
           items: [
-            { text: 'Web3 Applications', link: '/devhub/examples/web3-apps/' },
-            { text: 'DeFi Integration', link: '/devhub/examples/defi/' },
-            { text: 'NFT Projects', link: '/devhub/examples/nft/' },
-            { text: 'Gaming', link: '/devhub/examples/gaming/' }
+            { text: 'Web3 Applications', link: '/devhub/building-applications/examples/web3-apps/' },
+            { text: 'DeFi Integration', link: '/devhub/building-applications/examples/defi/' },
+            { text: 'NFT Projects', link: '/devhub/building-applications/examples/nft/' },
+            { text: 'Gaming', link: '/devhub/building-applications/examples/gaming/' }
           ]
         }
       ]
