@@ -178,11 +178,21 @@ export default defineConfig({
           ]
         },
         {
-          text: 'SDKs',
+          text: 'SDKs & Tools',
           items: [
-            { text: 'TypeScript', link: '/devhub/sdks/typescript/' },
-            { text: 'Python', link: '/devhub/sdks/python/' },
-            { text: 'Other Languages', link: '/devhub/sdks/other-languages/' }
+            { text: 'TypeScript', link: '/devhub/sdks-and-tools/typescript/' },
+            { text: 'Python', link: '/devhub/sdks-and-tools/python/' },
+            { 
+              text: 'Aleph Cloud CLI', 
+              link: '/devhub/sdks-and-tools/aleph-cli/',
+              collapsed: false,
+              items: [
+                { text: 'Account Management', link: '/devhub/sdks-and-tools/aleph-cli/commands/account' },
+                { text: 'File Operations', link: '/devhub/sdks-and-tools/aleph-cli/commands/file' },
+                { text: 'Function Deployment', link: '/devhub/sdks-and-tools/aleph-cli/commands/program' },
+                { text: 'Instance Management', link: '/devhub/sdks-and-tools/aleph-cli/commands/instance' }
+              ]
+            }
           ]
         },
         {
