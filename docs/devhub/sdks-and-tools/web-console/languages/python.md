@@ -82,4 +82,4 @@ To do this, navigate to the Volume section and add a new volume at `/opt/package
 
 **Make sure to use the correct name for the volume to avoid errors during deployment.**
 
-![Volume](../../../assets/images/console/volume.png)
+![Volume](/assets/images/console/volume.png)

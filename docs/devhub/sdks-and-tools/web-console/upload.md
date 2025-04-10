@@ -6,7 +6,7 @@ This guide details the steps for preparing and uploading code to the platform, e
 
 It is essential to prepare code to align with platform requirements, which involves selecting the appropriate programming language, packaging the project suitably, and defining an entry point.
 
-![Execute Code](../../assets/images/console/upload.png)
+![Execute Code](/assets/images/console/upload.png)
 
 ### Selecting Your Language
 
