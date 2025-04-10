@@ -4,7 +4,7 @@ The Aleph Cloud network is designed as a decentralized, peer-to-peer system that
 
 ## Network Overview
 
-![The Aleph Cloud network](/public/CCN-Network.svg)
+![The Aleph Cloud network](/assets/images/network/CCN-Network.svg)
 
 The Aleph Cloud network consists of two primary types of nodes that work together to provide decentralized services:
 

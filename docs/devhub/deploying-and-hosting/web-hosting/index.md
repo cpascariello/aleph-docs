@@ -53,13 +53,13 @@ npm run build
 
 When your static folder is ready, you can deploy your website using the [Twentysix Cloud Console](https://console.twentysix.cloud/hosting/website/new/).
 
-![Deploy your website](../../../public/images/console/deploy-website.png)
+![Deploy your website](../../../assets/images/console/deploy-website.png)
 
 ### History and Updates
 
 You can update your website or access/redeploy previous versions easily through your [Website Management Dashboard](https://console.twentysix.cloud/hosting/website/).
 
-![Update website and access history](../../../public/images/console/update-website.png)
+![Update website and access history](../../../assets/images/console/update-website.png)
 
 ## Access Your Dapp
 
@@ -88,7 +88,7 @@ To resolve it:
 - `Records` ➜ `Edit Records` ➜ `Other`
 - Setup `Content Hash` to: `ipfs://{ipfs-cid-v1}`
 
-![ENS record](../../../public/images/console/ens-record.png)
+![ENS record](../../../assets/images/console/ens-record.png)
 
 Your website will then be accessible via:
 

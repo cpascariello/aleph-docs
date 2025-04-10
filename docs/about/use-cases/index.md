@@ -14,7 +14,7 @@ description: Explore real-world applications and success stories powered by Alep
 <div class="vp-card-container">
   <div class="vp-card">
     <div class="vp-card-image">
-      <img src="/public/champion-tactics.png" alt="Ubisoft Case Study" />
+      <img src="/assets/images/logos/champion-tactics.png" alt="Ubisoft Case Study" />
     </div>
     <div class="vp-card-content">
       <h3>Ubisoft</h3>
@@ -27,7 +27,7 @@ description: Explore real-world applications and success stories powered by Alep
 
   <div class="vp-card">
     <div class="vp-card-image">
-      <img src="/public/libertai-logo.svg" alt="LibertAI Case Study" />
+      <img src="/assets/images/logos/libertai-logo.svg" alt="LibertAI Case Study" />
     </div>
     <div class="vp-card-content">
       <h3>LibertAI</h3>
@@ -40,7 +40,7 @@ description: Explore real-world applications and success stories powered by Alep
 
   <div class="vp-card">
     <div class="vp-card-image">
-      <img src="/public/libertai-logo.svg" alt="Request Finance Case Study" />
+      <img src="/assets/images/logos/libertai-logo.svg" alt="Request Finance Case Study" />
     </div>
     <div class="vp-card-content">
       <h3>Request Finance</h3>

@@ -10,11 +10,11 @@ Before installing the CLI, ensure you have the necessary dependencies:
 
 ::: code-group
 
-```Linux
+```bash [Linux]
 apt-get install -y python3-pip libsecp256k1-dev
 ```
 
-```Macos
+```bash [macOS]
 brew tap cuber/homebrew-libsecp256k1
 brew install libsecp256k1
 ```
@@ -38,22 +38,22 @@ pipx install aleph-client
 
 ::: code-group
 
-```Python
+```bash [Python]
 python3 -m venv aleph-env
 source aleph-env/bin/activate
 pip install aleph-client
 ```
 
-```Docker
+```bash [Docker]
 docker run --rm -ti \
     -v $(pwd)/data:/data \
     ghcr.io/aleph-im/aleph-client/aleph-client:master \
     --help
 ```
-> ⚠️ Using Docker will create an ephemeral key that will be discarded when the container stops.
-
 :::
-
+::: info
+> ⚠️ Using _Docker_ will create an ephemeral key that will be discarded when the container stops.
+:::
 ## Command Overview
 
 The Aleph CLI is organized into logical command groups that correspond to different Aleph.im features:
