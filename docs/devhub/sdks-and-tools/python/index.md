@@ -95,7 +95,7 @@ avax_account = EVMAccount(private_key=private_key, chain=Chain.AVAX) # With this
 
 ```python
 # Store a simple message 
-message, status = await client.create_store(
+message, status = await client.create_post(
     "Hello, Aleph.im!",
     extra_fields= {"tags": ["example", "hello-world"]}
 )
@@ -109,7 +109,7 @@ user_data = {
     "age": 30
 }
 
-json_result, status = await client.create_store(
+json_result, status = await client.create_post(
     user_data,
     extra_fields= {"tags": ["example", "hello-world"]}
 )
